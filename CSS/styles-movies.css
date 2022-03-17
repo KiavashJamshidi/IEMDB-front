@@ -90,3 +90,8 @@ img {
     display: flex;
     width: 40%;
 }
+
+.orderBy {
+    background-color: #B12025;
+    border-radius: 10px;
+}
