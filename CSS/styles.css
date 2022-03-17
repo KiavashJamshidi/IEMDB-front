@@ -1,0 +1,26 @@
+@font-face {
+    font-family: vazirFont;
+    src: url("/Fonts/vazir.ttf");
+}
+  
+
+body {
+    background-color: #292929;
+    font-family: vazirFont;
+}
+
+#navigation {
+    background-color: #B12025;
+    display: flex;
+    padding: 0%;
+}
+
+.navbar-brand {
+    padding: 0%;
+}
+
+
+.profile {
+    border-radius: 100%;
+    padding: 20%;
+}

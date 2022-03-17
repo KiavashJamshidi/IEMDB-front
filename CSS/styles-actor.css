@@ -1,28 +1,6 @@
-@font-face {
-    font-family: vazirFont;
-    src: url("/Fonts/vazir.ttf");
-}
-  
-
-body {
-    background-color: #292929;
-    font-family: vazirFont;
-}
-
-#navigation {
-    background-color: #B12025;
-    display: flex;
-    padding: 0%;
-}
-
-.navbar-brand {
-    padding: 0%;
-}
-
 img {
     height: 40%;
 }
-
 
 .container {
     max-width: 100%;
@@ -33,14 +11,12 @@ img {
     height: 100%;
 }
 
-
 .films-played {
     display: flex; 
     background-color: #4E4E50; 
     border-radius: 3%;
     max-height: 300px;
 }
-
 
 label {
     color: white;
@@ -92,9 +68,4 @@ label {
     transition: .5s ease;
     background-color: rgba(92, 10, 10, 0.521);
     box-shadow: 5px 5px #240808c5;
-
-}
-
-.profile {
-    border-radius: 100%; padding: 20%;
 }
