@@ -122,6 +122,13 @@
         border: none;
     }
     
+    .orderByContent {
+        color: white;
+        margin-top: 7%;
+        width: 15%;
+        padding: 0px 2%;
+    }
+    
     .orderByBtn:hover {
         background: #BF3B40;
         -webkit-border-radius: 20px;
