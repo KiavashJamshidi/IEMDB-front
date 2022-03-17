@@ -121,3 +121,19 @@ label {
     box-shadow: 5px 5px #240808c5;
 
 }
+
+.title-movie {
+    display: flex;
+}
+
+.trash {
+    width: 15%;
+}
+
+.title-div-left, .title-div-right {
+    width: 50%;
+}
+
+.title-div-right {
+    text-align: right;
+}
