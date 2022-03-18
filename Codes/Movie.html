@@ -120,24 +120,29 @@
                 <div class="col">
                     <div class="comments">
                         <div>دیدگاه ها</div>
-                        <div class="add-comment" dir="rtl">
-                            <b>دیدگاه خود را اضافه کنید:</b>
-                        </div>
-                        <textarea name="w3review" class="comment" dir="rtl">
 
-                        </textarea>
-                        <button class="register-comment">ثبت</button>
+                        <p class="formfield">
+                            <label class="add-comment" dir="rtl"><b>دیدگاه خود را اضافه کنید:</b></label>
+                            <textarea id="textarea" class="comment" dir="rtl"></textarea>
+                            <button class="register-comment">ثبت</button>
+                        </p>
 
                         <div class="comment-user">
                             <div class="commentor-name">
                                 <b>علی</b>
                             </div>
-                            <div class="commentor-comment">
+                            <div class="commentor-comment" dir="rtl">
                                 فیلم تاثیر گذاری بود
                             </div>
                             <div style="width: 15%; display: flex;">
-                                <button type="submit" style="border: none; border-radius: 100%; width: 100%; margin: 0 2%;"><img src="/Images/arrow-down.png" alt="" style="width: 100%;"></button>
-                                <button type="submit" style="border: none; border-radius: 100%; width: 100%; margin: 0 2%;"><img src="/Images/arrow-up.png" alt="" style="width: 100%;"></button>
+                                <div class="like-dislike-div">
+                                    <button type="submit" class="like-dislike-btn"><img src="/Images/arrow-down.png" alt="" class="like-dislike-img"></button>
+                                    <b class="like-dislike-number">5</b>
+                                </div>
+                                <div class="like-dislike-div">
+                                    <button type="submit" class="like-dislike-btn"><img src="/Images/arrow-up.png" alt="" class="like-dislike-img"></button>
+                                    <b class="like-dislike-number">12</b>
+                                </div>
                             </div>
                         </div>
 
@@ -145,12 +150,18 @@
                             <div class="commentor-name">
                                 <b>حسن</b>
                             </div>
-                            <div class="commentor-comment">
+                            <div class="commentor-comment" dir="rtl">
                                 زیبا
                             </div>
                             <div style="width: 15%; display: flex;">
-                                <button type="submit" style="border: none; border-radius: 100%; width: 100%; margin: 0 2%;"><img src="/Images/arrow-down.png" alt="" style="width: 100%;"></button>
-                                <button type="submit" style="border: none; border-radius: 100%; width: 100%; margin: 0 2%;"><img src="/Images/arrow-up.png" alt="" style="width: 100%;"></button>
+                                <div class="like-dislike-div">
+                                    <button type="submit" class="like-dislike-btn"><img src="/Images/arrow-down.png" alt="" class="like-dislike-img"></button>
+                                    <b class="like-dislike-number">2</b>
+                                </div>
+                                <div class="like-dislike-div">
+                                    <button type="submit" class="like-dislike-btn"><img src="/Images/arrow-up.png" alt="" class="like-dislike-img"></button>
+                                    <b class="like-dislike-number">5</b>
+                                </div>
                             </div>
 
                         </div>
@@ -159,12 +170,23 @@
                             <div class="commentor-name">
                                 <b>مصطفی</b>
                             </div>
-                            <div class="commentor-comment">
+                            <div class="commentor-comment" dir="rtl">
                                 نپسندیدم
                             </div>
                             <div style="width: 15%; display: flex;">
-                                <button type="submit" style="border: none; border-radius: 100%; width: 100%; margin: 0 2%;"><img src="/Images/arrow-down.png" alt="" style="width: 100%;"></button>
-                                <button type="submit" style="border: none; border-radius: 100%; width: 100%; margin: 0 2%;"><img src="/Images/arrow-up.png" alt="" style="width: 100%;"></button>
+                                <div class="like-dislike-div">
+                                    <button type="submit" class="like-dislike-btn">
+                                        <img src="/Images/arrow-down.png" alt="" class="like-dislike-img">
+                                    </button>
+                                    <b class="like-dislike-number">13</b>
+                                </div>
+                                <div class="like-dislike-div">
+                                    <button type="submit" class="like-dislike-btn">
+                                        <img src="/Images/arrow-up.png" alt="" class="like-dislike-img">
+                                    </button>
+                                    <b class="like-dislike-number">1</b>
+                                </div>
+
                             </div>
 
                         </div>
