@@ -187,7 +187,7 @@
         font-size: 16px;
         border: none;
         border-radius: 10px;
-        width: 80%;
+        width: 70%;
     }
     
     .dropdown {
@@ -263,4 +263,8 @@
         transition: .5s ease;
         background-color: rgba(92, 10, 10, 0.521);
         box-shadow: 5px 5px #240808c5;
+    }
+    
+    .profile-navbar {
+        margin-top: -2%;
     }

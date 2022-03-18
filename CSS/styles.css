@@ -2,7 +2,6 @@
     font-family: vazirFont;
     src: url("/Fonts/vazir.ttf");
 }
-  
 
 body {
     background-color: #292929;
@@ -18,7 +17,6 @@ body {
 .navbar-brand {
     padding: 0%;
 }
-
 
 .profile {
     border-radius: 100%;
