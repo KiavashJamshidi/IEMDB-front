@@ -1,0 +1,36 @@
+.movie-wallpaper {
+    /* width: 315px;
+    height: 165px;
+    margin: 20px; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+}
+
+.fade {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: -webkit-linear-gradient(left, rgba(7, 1, 39, 0.65) 0%, rgba(193, 179, 243, 0) 20%, rgba(42, 28, 230, 0.295) 80%, rgba(7, 1, 41, 0.65) 100%);
+}
+
+.movie-description {
+    background-color: rgba(88, 88, 88, 0);
+    height: 80%;
+    margin-top: -20%;
+    margin-bottom: 5%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.image-film {
+    display: block;
+    max-width: 150px;
+    height: 200px;
+}
+
+.movie-picture {
+    margin-top: 5%;
+}
