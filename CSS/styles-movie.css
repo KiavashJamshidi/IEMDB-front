@@ -49,10 +49,17 @@
     border-radius: 5%;
 }
 
-.cast {
+.cast,
+.comments {
     width: 100%;
     padding: 2%;
     text-align: center;
+    padding: 2%;
+}
+
+.comments {
+    min-height: 600px;
+    overflow: hidden;
 }
 
 .cast-pictures {
@@ -89,4 +96,66 @@
     transition: .5s ease;
     background-color: rgba(92, 10, 10, 0.521);
     box-shadow: 5px 5px #240808c5;
+}
+
+.add-comment,
+.comment {
+    width: 80%;
+    background-color: white;
+    margin: 5% 10% 0;
+    color: black;
+    text-align: right;
+    font-size: 70%;
+    border-bottom: 1px dashed #f00;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.comment {
+    height: 12%;
+    position: relative;
+    margin: 0 10%;
+    border: none;
+    padding: 0%;
+}
+
+.register-comment {
+    background: #62F63D;
+    background-image: -webkit-linear-gradient(top, #62F63D, #1EA6D0);
+    background-image: -moz-linear-gradient(top, #62F63D, #1EA6D0);
+    background-image: -ms-linear-gradient(top, #62F63D, #1EA6D0);
+    background-image: -o-linear-gradient(top, #62F63D, #1EA6D0);
+    background-image: -webkit-gradient(to bottom, #62F63D, #1EA6D0);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    line-height: 0;
+    color: #FFFFFF;
+    width: 12%;
+    height: 5%;
+    font-size: 12px;
+    font-weight: 100;
+    text-shadow: 1px 1px 20px #000000;
+    border: solid #0059A0 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+    top: 23%;
+    left: 12%;
+}
+
+.register-comment:hover {
+    border: solid #000000 0;
+    background: #1A8B3D;
+    background-image: -webkit-linear-gradient(top, #1A8B3D, #10B9AE);
+    background-image: -moz-linear-gradient(top, #1A8B3D, #10B9AE);
+    background-image: -ms-linear-gradient(top, #1A8B3D, #10B9AE);
+    background-image: -o-linear-gradient(top, #1A8B3D, #10B9AE);
+    background-image: -webkit-gradient(to bottom, #1A8B3D, #10B9AE);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
 }
