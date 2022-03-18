@@ -54,11 +54,10 @@ label {
 }
 
 .films-recommended {
-    display: flex; 
-    background-color: #4E4E50; 
+    display: flex;
+    background-color: #4E4E50;
     border-radius: 3%;
 }
-
 
 .recommend-div {
     padding: 2% 5%;
@@ -73,7 +72,7 @@ label {
     height: 100%;
 }
 
-.recommend-div:hover .overlay{
+.recommend-div:hover .overlay {
     opacity: 1;
 }
 
@@ -83,7 +82,6 @@ label {
     top: 8%;
     left: 15%;
     color: white;
-
     width: 70%;
     height: 83%;
     justify-content: center;
@@ -102,7 +100,8 @@ label {
     width: 15%;
 }
 
-.title-div-left, .title-div-right {
+.title-div-left,
+.title-div-right {
     width: 50%;
 }
 
