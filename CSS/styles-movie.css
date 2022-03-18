@@ -168,12 +168,3 @@
     height: auto;
     padding: 2% 5%;
 }
-
-input {
-    background-image: url("/Images/arrow-down.png");
-    background-repeat: no-repeat;
-    width: 1000px;
-    height: 1000px;
-    /* background-position: <left|right>; */
-    /* padding-<left|right>: <width of image>px; */
-}
