@@ -40,9 +40,9 @@ body {
     text-align: center;
     width: 25%;
     margin-top: 2%;
+    border: none;
 }
 
 .signup-button:hover {
     background: #FAD15F;
-    border: solid #FFAE00 0;
 }
