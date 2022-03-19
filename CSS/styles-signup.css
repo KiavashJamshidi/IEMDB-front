@@ -46,3 +46,7 @@ body {
 .signup-button:hover {
     background: #FAD15F;
 }
+
+.register-text {
+    text-align: center;
+}

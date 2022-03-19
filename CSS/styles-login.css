@@ -76,3 +76,11 @@ body {
 .login-button:hover {
     background: #FAD15F;
 }
+
+.register-text {
+    text-align: center;
+}
+
+.icon-image {
+    width: 100%;
+}
