@@ -32,7 +32,7 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #B12025;
+    background-color: #b12025b5;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
