@@ -2,12 +2,9 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
 import Login from './Login/Login';
 import Movies from './Movies/Movies';
-<<<<<<< HEAD
 import Movie from './Movie/Movie'
-=======
 import Signup from './Signup/Signup';
 
->>>>>>> d0933cdde056ea7e178352b117f5513d1f2caf30
 
 function App() {
   return (
