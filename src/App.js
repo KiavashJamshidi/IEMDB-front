@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
 import Movies from './Movies/Movies';
+import Movie from './Movie/Movie'
 
 function App() {
   return (
@@ -64,6 +65,9 @@ function App() {
             </Route> */}
 
           <Route path="/movies" caseSensitive={false} element={<Movies />} />
+
+          <Route path="/movie" caseSensitive={false} element={<Movie />} />
+
           </Routes>
 
         </div>
