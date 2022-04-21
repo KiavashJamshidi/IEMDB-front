@@ -3,6 +3,8 @@ import './Movie.css'
 import '../Styles.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../Header/Header'
+import Actor from './Actor';
+import Comment from './Comment';
 
 function Movie(props) {
     return (
@@ -108,38 +110,14 @@ function Movie(props) {
                         <div class="cast">
                             <div>بازیگران</div>
                             <div class="cast-pictures">
-                                <div class="cast-picture-div">
-                                    <img src="/Images/Tom-Holland-crop.jpg" alt="" class="cast-img"/>
-                                    <div class="overlay">
-                                        <br/>
-                                        <br/> Tom Holland
-                                        <br/> Age: 25
-                                    </div>
-                                </div>
-                                <div class="cast-picture-div">
-                                    <img src="/Images/Tobey-Maguire-crop.jpg" alt="" class="cast-img"/>
-                                    <div class="overlay">
-                                        <br/>
-                                        <br/> Tobey Maguire
-                                        <br/> Age: 46
-                                    </div>
-                                </div>
-                                <div class="cast-picture-div">
-                                    <img src="/Images/Andrew-Garfield-crop.jpg" alt="" class="cast-img"/>
-                                    <div class="overlay">
-                                        <br/>
-                                        <br/> Andrew Garfield
-                                        <br/> Age: 38
-                                    </div>
-                                </div>
-                                <div class="cast-picture-div">
-                                    <img src="/Images/Zendaya-crop.jpg" alt="" class="cast-img"/>
-                                    <div class="overlay">
-                                        <br/>
-                                        <br/> Zendaya
-                                        <br/> Age: 25
-                                    </div>
-                                </div>
+
+                                <Actor />
+
+                                <Actor />
+
+                                <Actor />
+
+                                <Actor />
                             </div>
                         </div>
                     </div>
@@ -155,70 +133,13 @@ function Movie(props) {
                                 <textarea class="comment" dir="rtl"></textarea>
                                 <button class="register-comment">ثبت</button>
                             </div>
+                            
+                            <Comment />
+                            
+                            <Comment />
 
-                            <div class="comment-user">
-                                <div class="commentor-name">
-                                    <b>علی</b>
-                                </div>
-                                <div class="commentor-comment" dir="rtl">
-                                    فیلم تاثیر گذاری بود
-                                </div>
-                                <div class="like-dislike-info">
-                                    <div class="like-dislike-div">
-                                        <button type="submit" class="like-dislike-btn"><img src="/Images/arrow-down.png" alt="" class="like-dislike-img"/></button>
-                                        <b class="like-dislike-number">5</b>
-                                    </div>
-                                    <div class="like-dislike-div">
-                                        <button type="submit" class="like-dislike-btn"><img src="/Images/arrow-up.png" alt="" class="like-dislike-img"/></button>
-                                        <b class="like-dislike-number">12</b>
-                                    </div>
-                                </div>
-                            </div>
+                            <Comment />
 
-                            <div class="comment-user">
-                                <div class="commentor-name">
-                                    <b>حسن</b>
-                                </div>
-                                <div class="commentor-comment" dir="rtl">
-                                    زیبا
-                                </div>
-                                <div class="like-dislike-info">
-                                    <div class="like-dislike-div">
-                                        <button type="submit" class="like-dislike-btn"><img src="/Images/arrow-down.png" alt="" class="like-dislike-img"/></button>
-                                        <b class="like-dislike-number">2</b>
-                                    </div>
-                                    <div class="like-dislike-div">
-                                        <button type="submit" class="like-dislike-btn"><img src="/Images/arrow-up.png" alt="" class="like-dislike-img"/></button>
-                                        <b class="like-dislike-number">5</b>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="comment-user">
-                                <div class="commentor-name">
-                                    <b>مصطفی</b>
-                                </div>
-                                <div class="commentor-comment" dir="rtl">
-                                    نپسندیدم
-                                </div>
-                                <div class="like-dislike-info">
-                                    <div class="like-dislike-div">
-                                        <button type="submit" class="like-dislike-btn">
-                                            <img src="/Images/arrow-down.png" alt="" class="like-dislike-img"/>
-                                        </button>
-                                        <b class="like-dislike-number">13</b>
-                                    </div>
-                                    <div class="like-dislike-div">
-                                        <button type="submit" class="like-dislike-btn">
-                                            <img src="/Images/arrow-up.png" alt="" class="like-dislike-img"/>
-                                        </button>
-                                        <b class="like-dislike-number">1</b>
-                                    </div>
-
-                                </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>

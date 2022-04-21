@@ -168,10 +168,10 @@
     text-decoration: none;
 }
 
-.commentor-name {
-    padding: 0 0 3%;
-    border-bottom: 1px dashed #f00;
-}
+    .commentor-name {
+        padding: 0 0 3%;
+        border-bottom: 1px dashed #f00;
+    }
 
 .comment {
     margin-top: 0;

@@ -4,6 +4,7 @@ import Login from './Login/Login';
 import Movies from './Movies/Movies';
 import Movie from './Movie/Movie'
 import Signup from './Signup/Signup';
+import Watchlist from './Watchlist/Watchlist'
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
             <Route >
               <h1>Page not found!</h1>
             </Route> */}
+          <Route path="/watchlist" caseSensitive={false} element={<Watchlist />} />
 
           <Route path="/movies" caseSensitive={false} element={<Movies />} />
 

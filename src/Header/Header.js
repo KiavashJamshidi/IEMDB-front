@@ -18,7 +18,7 @@ function Header(props) {
                 <div class="dropdown">
                     <img src={profile_icon} class="profile" alt="" width="60"/>
                     <div class="dropdown-content">
-                        <a href="#">salehi@gmail.com</a>
+                        <a href="#">{props.email}</a>
                         <a href="#">watch list</a>
                     </div>
                 </div>
