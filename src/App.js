@@ -1,7 +1,13 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
+import Login from './Login/Login';
 import Movies from './Movies/Movies';
+<<<<<<< HEAD
 import Movie from './Movie/Movie'
+=======
+import Signup from './Signup/Signup';
+
+>>>>>>> d0933cdde056ea7e178352b117f5513d1f2caf30
 
 function App() {
   return (
@@ -68,6 +74,8 @@ function App() {
 
           <Route path="/movie" caseSensitive={false} element={<Movie />} />
 
+          <Route path="/login" caseSensitive={false} element={<Login />} />
+		      <Route path="/signup" caseSensitive={false} element={<Signup />} />
           </Routes>
 
         </div>
