@@ -58,9 +58,6 @@ function Signup() {
                                 <div class="input-group form-group">
                                     <input type="email" class="form-control" placeholder="ایمیل" dir="rtl"/>
                                 </div>
-                                <div class="input-group form-group">
-                                    <input type="number" class="form-control" placeholder="سن" dir="rtl"/>
-                                </div>
                                 <div class="form-group">
                                     <button class="signup-button">ثبت نام</button>
                                 </div>

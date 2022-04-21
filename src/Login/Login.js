@@ -32,49 +32,46 @@ function Login() {
 
     return (
 
-<body>
-    <Header/>
-    <div class="container">
-        <div class="d-flex justify-content-center h-100">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="register-text">ورود</h3>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="input-group form-group">
-                            <input type="text" class="form-control" placeholder="نام کاربری" dir="rtl"/>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><img src={profileLogin} alt="" class="icon-image"/></span>
-                            </div>
+        <body>
+            <Header/>
+            <div class="container">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="register-text">ورود</h3>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="input-group form-group">
+                                    <input type="text" class="form-control" placeholder="نام کاربری" dir="rtl"/>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><img src={profileLogin} alt="" class="icon-image"/></span>
+                                    </div>
 
+                                </div>
+                                <div class="input-group form-group">
+                                    <input type="password" class="form-control" placeholder="رمز عبور" dir="rtl"/>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><img src={password} alt="" class="icon-image"/> </span>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center remember">
+                                    <input type="checkbox"/>من را به خاطر بسپار
+                                </div>
+                                <div class="form-group">
+                                    <button class="login-button">ورود</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="input-group form-group">
-                            <input type="password" class="form-control" placeholder="رمز عبور" dir="rtl"/>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><img src={password} alt="" class="icon-image"/> </span>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center links">
+                                <a href="#">ثبت نام</a> حساب کاربری ندارید؟
                             </div>
                         </div>
-                        <div class="row align-items-center remember">
-                            <input type="checkbox"/>من را به خاطر بسپار
-                        </div>
-                        <div class="form-group">
-                            <button class="login-button">ورود</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-content-center links">
-                        <a href="#">ثبت نام</a> حساب کاربری ندارید؟
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</body>
-
-
-
+        </body>
 
     )
 }
