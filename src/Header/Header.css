@@ -1,0 +1,54 @@
+.searchDiv {
+    display: flex;
+    width: 40%;
+}
+
+.dropbtn {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    width: 70%;
+}
+
+
+.searchInput {
+    width: 100%;
+    margin: auto;
+    max-width: 300px;
+}
+
+.searchInput input[type=text] {
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: white;
+    border-radius: 5px;
+}
+
+.searchInput button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: white;
+    color: #B12025;
+    font-size: 12px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.searchInput button:hover {
+    background: #F3F3F3;
+}
+
+.searchInput::after {
+    content: "";
+    clear: both;
+    display: table;
+}

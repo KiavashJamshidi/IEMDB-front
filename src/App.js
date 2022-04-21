@@ -1,6 +1,9 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
+import Login from './Login/Login';
 import Movies from './Movies/Movies';
+import Signup from './Signup/Signup';
+
 
 function App() {
   return (
@@ -64,6 +67,8 @@ function App() {
             </Route> */}
 
           <Route path="/movies" caseSensitive={false} element={<Movies />} />
+          <Route path="/login" caseSensitive={false} element={<Login />} />
+		  <Route path="/signup" caseSensitive={false} element={<Signup />} />
           </Routes>
 
         </div>
