@@ -8,29 +8,29 @@ import MovieRec from './MovieRec';
 function Watchlist(props) {
     return (
 
-        <body>
+        <div>
             
             <Header email="sina99.sn@gmail.com"/>
 
-            <div class="container">
-                <div class="row">
+            <div className="container">
+                <div className="row">
 
                     <MovieWatchlist />
 
-                    <div class="w-100"></div>
+                    <div className="w-100"></div>
 
                     <MovieWatchlist />
 
-                    <div class="w-100"></div>
+                    <div className="w-100"></div>
 
-                    <div class="col" id="recommends">
-                        <div class="info">
-                            <div class="title-recommends">
+                    <div className="col" id="recommends">
+                        <div className="info">
+                            <div className="title-recommends">
                                 <label>
                                     فیلم های پیشنهادی
                                 </label>
                             </div>
-                            <div class="films-recommended">
+                            <div className="films-recommended">
 
                                 <MovieRec />
 
@@ -45,7 +45,7 @@ function Watchlist(props) {
                 </div>
             </div>
 
-        </body>
+        </div>
     )
 }
 

@@ -1,3 +1,4 @@
+import { Link, useHistory } from 'react-router-dom';
 import React, { useEffect } from 'react'
 import logo from '../../Images/IEMDB.png'
 import profile_icon from '../../Images/profile.jpg'
@@ -5,37 +6,38 @@ import './movieHeader.css'
 import '../../Styles.css'
 
 function MovieHeader(props) {
+
     return (
-        <div class="navbar" id="navigation">
-        <a class="navbar-brand">
+        <div className="navbar" id="navigation">
+        <Link to="/movies" className="navbar-brand">
             <img src={logo} alt="" width="60"/>
-        </a>
-        <div class="searchDiv">
-            <div class="dropdown">
-                <button class="dropbtn">:جستجو بر اساس</button>
-                <div class="dropdown-content">
-                    <a href="#">نام</a>
-                    <a href="#">ژانر</a>
-                    <a href="#">تاریخ تولید</a>
+        </Link>
+        <div className="searchDiv">
+            <div className="dropdown">
+                <button className="dropbtn">:جستجو بر اساس</button>
+                <div className="dropdown-content">
+                    <Link to="#">نام</Link>
+                    <Link to="#">ژانر</Link>
+                    <Link to="#">تاریخ تولید</Link>
                 </div>
             </div>
 
-            <form class="searchInput">
+            <form className="searchInput">
                 <input type="text" placeholder=""/>
-                <button type="submit"><i class="fa fa-search"></i></button>
+                <button type="submit"><i className="fa fa-search"></i></button>
             </form>
 
         </div>
-        <div class="profile-navbar">
-            <a class="navbar-brand">
-                <div class="dropdown">
-                    <img src={profile_icon} class="profile" alt="" width="60"/>
-                    <div class="dropdown-content">
-                        <a href="#">{props.email}</a>
-                        <a href="#">watch list</a>
+        <div className="profile-navbar">
+            <div className="navbar-brand">
+                <div className="dropdown">
+                    <img src={profile_icon} className="profile" alt="" width="60"/>
+                    <div className="dropdown-content">
+                        <Link to="#">{props.email}</Link>
+                        <Link to="#">watch list</Link>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
 
     </div>

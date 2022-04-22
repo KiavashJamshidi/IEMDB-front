@@ -5,21 +5,21 @@ import '../Styles.css'
 import ActorImage from '../Images/Tom-Holland-crop.jpg'
 function Comment(props) {
     return (
-            <div class="comment-user">
-            <div class="commentor-name">
+            <div className="comment-user">
+            <div className="commentor-name">
                 <b>علی</b>
             </div>
-            <div class="commentor-comment" dir="rtl">
+            <div className="commentor-comment" dir="rtl">
                 فیلم تاثیر گذاری بود
             </div>
-            <div class="like-dislike-info">
-                <div class="like-dislike-div">
-                    <button type="submit" class="like-dislike-btn"><img src="/Images/arrow-down.png" alt="" class="like-dislike-img"/></button>
-                    <b class="like-dislike-number">5</b>
+            <div className="like-dislike-info">
+                <div className="like-dislike-div">
+                    <button type="submit" className="like-dislike-btn"><img src="/Images/arrow-down.png" alt="" className="like-dislike-img"/></button>
+                    <b className="like-dislike-number">5</b>
                 </div>
-                <div class="like-dislike-div">
-                    <button type="submit" class="like-dislike-btn"><img src="/Images/arrow-up.png" alt="" class="like-dislike-img"/></button>
-                    <b class="like-dislike-number">12</b>
+                <div className="like-dislike-div">
+                    <button type="submit" className="like-dislike-btn"><img src="/Images/arrow-up.png" alt="" className="like-dislike-img"/></button>
+                    <b className="like-dislike-number">12</b>
                 </div>
             </div>
         </div>

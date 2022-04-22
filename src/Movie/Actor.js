@@ -5,9 +5,9 @@ import '../Styles.css'
 import ActorImage from '../Images/Tom-Holland-crop.jpg'
 function Actor(props) {
     return (
-        <div class="cast-picture-div">
-        <img src={ActorImage} alt="" class="cast-img"/>
-        <div class="overlay">
+        <div className="cast-picture-div">
+        <img src={ActorImage} alt="" className="cast-img"/>
+        <div className="overlay">
             <br/>
             <br/> Tom Holland
             <br/> Age: 25

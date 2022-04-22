@@ -3,34 +3,35 @@ import Header from '../Header/Header'
 import './MovieWatchlist.css'
 import '../Styles.css'
 import MovieImage from '../Images/The-Godfather.jpg';
+import { Link } from 'react-router-dom';
 
 
 function MovieWatchlist(props) {
     return (
 
-        <div class="col">
+        <div className="col">
             
-            <div class="film-img-div">
-                <a href="/Codes/Movie.html">
-                    <img src={MovieImage} alt="" class="film-img"/>
-                </a>
+            <div className="film-img-div">
+                <Link to="/Codes/Movie.html">
+                    <img src={MovieImage} alt="" className="film-img"/>
+                </Link>
             </div>
-            <div class="info">
-                <div class="title-movie">
-                    <div class="title-div-left">
+            <div className="info">
+                <div className="title-movie">
+                    <div className="title-div-left">
                         <label>
                             The Godfather
                         </label>
                     </div>
-                    <div class="title-div-right">
-                        <a href="#">
-                            <img src="/Images/trash.png" alt="" class="trash"/>
-                        </a>
+                    <div className="title-div-right">
+                        <Link to="#">
+                            <img src="/Images/trash.png" alt="" className="trash"/>
+                        </Link>
                     </div>
                 </div>
-                <div class="info-movie">
-                    <div class="info-div">
-                        <label dir="rtl" class="details-movie">
+                <div className="info-movie">
+                    <div className="info-div">
+                        <label dir="rtl" className="details-movie">
                             <b dir="rtl">امتیاز IMDB:</b>
                             9.2
                         <br/><br/>
@@ -38,8 +39,8 @@ function MovieWatchlist(props) {
                             9.1
                         </label>
                     </div>
-                    <div class="info-div">
-                        <label dir="rtl" class="details-movie">
+                    <div className="info-div">
+                        <label dir="rtl" className="details-movie">
                             <b>کارگردان:</b>
                             Francis Ford Coppola
                             <br/>

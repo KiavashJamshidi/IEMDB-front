@@ -6,6 +6,7 @@ import '../Styles.css';
 import Header from '../Header/Header';
 import profileLogin from '../Images/proflie-login.png';
 import password from '../Images/password.jpg';
+import { Link } from 'react-router-dom';
 
 // import {Helmet} from "react-helmet";
 // const Demo = props => (
@@ -32,49 +33,46 @@ function Login() {
 
     return (
 
-<body>
-    <Header/>
-    <div class="container">
-        <div class="d-flex justify-content-center h-100">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="register-text">ورود</h3>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="input-group form-group">
-                            <input type="text" class="form-control" placeholder="نام کاربری" dir="rtl"/>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><img src={profileLogin} alt="" class="icon-image"/></span>
-                            </div>
+        <div>
+            <Header/>
+            <div className="container">
+                <div className="d-flex justify-content-center h-100">
+                    <div className="card">
+                        <div className="card-header">
+                            <h3 className="register-text">ورود</h3>
+                        </div>
+                        <div className="card-body">
+                            <form>
+                                <div className="input-group form-group">
+                                    <input type="text" className="form-control" placeholder="نام کاربری" dir="rtl"/>
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><img src={profileLogin} alt="" className="icon-image"/></span>
+                                    </div>
 
+                                </div>
+                                <div className="input-group form-group">
+                                    <input type="password" className="form-control" placeholder="رمز عبور" dir="rtl"/>
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><img src={password} alt="" className="icon-image"/> </span>
+                                    </div>
+                                </div>
+                                <div className="row align-items-center remember">
+                                    <input type="checkbox"/>من را به خاطر بسپار
+                                </div>
+                                <div className="form-group">
+                                    <button className="login-button">ورود</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="input-group form-group">
-                            <input type="password" class="form-control" placeholder="رمز عبور" dir="rtl"/>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><img src={password} alt="" class="icon-image"/> </span>
+                        <div className="card-footer">
+                            <div className="d-flex justify-content-center links">
+                                <Link to="#">ثبت نام</Link> حساب کاربری ندارید؟
                             </div>
                         </div>
-                        <div class="row align-items-center remember">
-                            <input type="checkbox"/>من را به خاطر بسپار
-                        </div>
-                        <div class="form-group">
-                            <button class="login-button">ورود</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-content-center links">
-                        <a href="#">ثبت نام</a> حساب کاربری ندارید؟
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
-
-
-
 
     )
 }
