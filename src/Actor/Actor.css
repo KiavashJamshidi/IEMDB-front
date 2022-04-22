@@ -56,12 +56,12 @@ label {
 .overlay {
     padding-top: 5%;
     position: absolute;
-    top: 12%;
-    left: 30%;
+    top: 8%;
+    left: 17%;
     color: white;
 
-    width: 54%;
-    height: 75%;
+    width: 68%;
+    height: 80%;
     justify-content: center;
     text-align: center;
     opacity: 0;

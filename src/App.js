@@ -4,6 +4,8 @@ import Login from './Login/Login';
 import Movies from './Movies/Movies';
 import Movie from './Movie/Movie'
 import Signup from './Signup/Signup';
+import Watchlist from './Watchlist/Watchlist'
+
 import Actor from './Actor/Actor';
 
 function App() {
@@ -66,12 +68,12 @@ function App() {
             <Route >
               <h1>Page not found!</h1>
             </Route> */}
-
-			<Route path="/movies" caseSensitive={false} element={<Movies />} />
-			<Route path="/movie" caseSensitive={false} element={<Movie />} />
-			<Route path="/login" caseSensitive={false} element={<Login />} />
-			<Route path="/signup" caseSensitive={false} element={<Signup />} />
-			<Route path="/Actor" caseSensitive={false} element={<Actor />} />
+          <Route path="/watchlist" caseSensitive={false} element={<Watchlist />} />
+          <Route path="/movies" caseSensitive={false} element={<Movies />} />
+          <Route path="/movie" caseSensitive={false} element={<Movie />} />
+          <Route path="/login" caseSensitive={false} element={<Login />} />
+          <Route path="/signup" caseSensitive={false} element={<Signup />} />
+          <Route path="/actor" caseSensitive={false} element={<Actor />} />
           </Routes>
 
         </div>

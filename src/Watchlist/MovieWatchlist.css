@@ -1,0 +1,56 @@
+.film-img-div {
+    width: 30%;
+}
+
+.film-img {
+    height: 100%;
+    width: 100%;
+}
+
+
+.title-movie {
+    display: flex;
+}
+
+.title-div-left,
+.title-div-right {
+    width: 50%;
+}
+
+.title-div-right {
+    text-align: right;
+}
+
+.trash {
+    width: 15%;
+}
+
+.info-div {
+    width: 50%;
+}
+
+.details-movie {
+    margin-top: 5%;
+    text-align: right;
+}
+
+.info-movie {
+    display: flex;
+}
+
+label {
+    width: 100%;
+    padding: 2%;
+    font-size: 80%;
+}
+
+.col {
+    background-color: #4E4E50;
+    color: white;
+    margin: 2%;
+    max-width: 50%;
+    padding: 0;
+    display: flex;
+    border-radius: 5%;
+}
+

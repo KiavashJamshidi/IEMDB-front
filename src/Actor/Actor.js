@@ -5,7 +5,7 @@ import './Actor.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../Header/Header';
 import tempPic from "../Images/no-way-home.jpg";
-import Movie from '../Movie/Movie'
+import ActorsMovies from './ActorsMovies';
 
 // import {Helmet} from "react-helmet";
 // const Demo = props => (
@@ -32,22 +32,22 @@ function Actor() {
 
     return (
 
-        <body>
+        <div>
             <Header/>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-3">
                         <img src="/Images/Tom-Holland.jpg" alt="" id="picture-actor"/>
                     </div>
-                    <div class="col-md-9">
-                        <div class="info" dir="rtl">
-                            <div class="title-div">
+                    <div className="col-md-9">
+                        <div className="info" dir="rtl">
+                            <div className="title-div">
                                 <label>
                                     مشخصات بازیگر
                                 </label>
                             </div>
-                            <div class="info-actor">
+                            <div className="info-actor">
                                 <label>
                                     نام: Tom Holland
                                     <br/>
@@ -58,47 +58,22 @@ function Actor() {
                                     تعداد فیلم ها: 4
                                 </label>
                             </div>
-                            <div class="title-div">
+                            <div className="title-div">
                                 <label>
                                     فیلم ها
                                 </label>
                             </div>
-                            <div class="films-played">
-                                <div class="film-div">
-                                    <a href="/Codes/Movie.html">
-                                        <img src={tempPic} alt="" class="image-film"/>
-                                        <div class="overlay">
-                                            Spider Man: No Way Home
-                                            <br/> 8.3
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="film-div">
-                                    <a href="/Codes/Movie.html">
-                                        <img src={tempPic} alt="" class="image-film"/>
-                                        <div class="overlay">
-                                            Spider Man: Far from Home
-                                            <br/> 7.4
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="film-div">
-                                    <a href="/Codes/Movie.html">
-                                        <img src={tempPic} alt="" class="image-film"/>
-                                        <div class="overlay">
-                                            Spider Man: Homecoming
-                                            <br/> 7.4
-                                        </div>
-                                    </a>
-                                </div>
+                            <div className="films-played">
+                                <ActorsMovies />
+                                <ActorsMovies />
+                                <ActorsMovies />
                             </div>
                             <br/>
                         </div>
                     </div>
                 </div>
             </div>
-        </body>
+        </div>
 
     )
 }

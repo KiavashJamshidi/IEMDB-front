@@ -4,6 +4,7 @@ import './Signup.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css';
 import Header from '../Header/Header';
+import { Link } from 'react-router-dom';
 
 // import {Helmet} from "react-helmet";
 // const Demo = props => (
@@ -30,48 +31,48 @@ function Signup() {
 
     return (
 
-        <body>
+        <div>
             <Header/>
-            <div class="container">
-                <div class="d-flex justify-content-center h-100">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="register-text">ثبت نام</h3>
+            <div className="container">
+                <div className="d-flex justify-content-center h-100">
+                    <div className="card">
+                        <div className="card-header">
+                            <h3 className="register-text">ثبت نام</h3>
                         </div>
-                        <div class="card-body" >
+                        <div className="card-body" >
                             <form>
-                                <div class="input-group form-group">
-                                    <input type="text" class="form-control" placeholder="نام مستعار" dir="rtl"/>
+                                <div className="input-group form-group">
+                                    <input type="text" className="form-control" placeholder="نام مستعار" dir="rtl"/>
                                 </div>
-                                <div class="input-group form-group">
-                                    <input type="text" class="form-control" placeholder="نام" dir="rtl"/>
+                                <div className="input-group form-group">
+                                    <input type="text" className="form-control" placeholder="نام" dir="rtl"/>
                                 </div>
-                                <div class="input-group form-group">
-                                    <input type="text" class="form-control" placeholder="تاریخ تولد mm/dd/yyyy" dir="rtl"/>
+                                <div className="input-group form-group">
+                                    <input type="text" className="form-control" placeholder="تاریخ تولد mm/dd/yyyy" dir="rtl"/>
                                 </div>
-                                <div class="input-group form-group">
-                                    <input type="password" class="form-control" placeholder="رمز عبور" dir="rtl"/>
+                                <div className="input-group form-group">
+                                    <input type="password" className="form-control" placeholder="رمز عبور" dir="rtl"/>
                                 </div>
-                                <div class="input-group form-group">
-                                    <input type="password" class="form-control" placeholder="تکرار رمز عبور" dir="rtl"/>
+                                <div className="input-group form-group">
+                                    <input type="password" className="form-control" placeholder="تکرار رمز عبور" dir="rtl"/>
                                 </div>
-                                <div class="input-group form-group">
-                                    <input type="email" class="form-control" placeholder="ایمیل" dir="rtl"/>
+                                <div className="input-group form-group">
+                                    <input type="email" className="form-control" placeholder="ایمیل" dir="rtl"/>
                                 </div>
-                                <div class="form-group">
-                                    <button class="signup-button">ثبت نام</button>
+                                <div className="form-group">
+                                    <button className="signup-button">ثبت نام</button>
                                 </div>
                             </form>
                         </div>
-                        <div class="card-footer">
-                            <div class="d-flex justify-content-center links">
-                                <a href="#">ورود </a> قبلا ثبت نام کرده اید؟
+                        <div className="card-footer">
+                            <div className="d-flex justify-content-center links">
+                                <Link to="#">ورود </Link> قبلا ثبت نام کرده اید؟
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </body>
+        </div>
     )
 }
 

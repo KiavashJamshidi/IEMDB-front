@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from "axios";
+
 import { GetUser } from '../App'
 // import Product from '../Products/Product'
 // import { useStateValue } from '../StateManager/StateProvider'
@@ -7,6 +9,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css'
 import MovieHeader from './Header/movieHeader';
 import Movie from './Movie'
+import { API_URL } from '../EnviormentVariables';
+
 // import {Helmet} from "react-helmet";
 // const Demo = props => (
 // <div className="application">
@@ -19,63 +23,89 @@ import Movie from './Movie'
 // );
 function Movies() {
     // const [state, dispatch] = useStateValue()
+    let [movies, setMovies] = useState([]);
+    // let movies = [];
     let user;
 
-    // useEffect( async () => {
-    //     user = await GetUser(state);
-    //     await dispatch({
-    //         type: 'SET_USER_INFO',
-    //         user: user
-    //     });
-    // }, [] )
-    
+    async function getMovies(code, group) {
+        const url = `${API_URL}/movies`
+        const resp = await axios.get(
+            url,
+            // getAuthHeader()
+        );
+        console.log(resp.status);
+        console.log(resp.data);
+
+        return resp.data;
+    }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            getMovies()
+            .then(c => {
+                setMovies(c);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+        }, 5000);
+        return () => clearInterval(interval);
+      }, []);    
     
     return (
         
-        <body>
-            
+        <>
+
             <MovieHeader email="sina99.sn@gmail.com" />
 
-            <div class="movies">
-                <div class="redundant-div">
+            <div className="movies">
+                <div className="redundant-div">
                 </div>
-                <div class="all-movies-div">
-                    <div class="col-movie">
+                <div className="all-movies-div">
+                    <div className="col-movie">
+                        {/* <Movie />
+                        <Movie />
+                        <Movie /> */}
+                        { movies.map( item => (
+
+                        <Movie MovieName={item.name}/>
+
+                        ) )}
+                    </div>
+                    <div className="col-movie">
                         <Movie />
                         <Movie />
                         <Movie />
                     </div>
-                    <div class="col-movie">
+                    <div className="col-movie">
                         <Movie />
                         <Movie />
                         <Movie />
                     </div>
-                    <div class="col-movie">
-                        <Movie />
-                        <Movie />
-                        <Movie />
-                    </div>
-                    <div class="col-movie">
+                    <div className="col-movie">
                         <Movie />
                         <Movie />
                         <Movie />
                     </div>
                 </div>
-                <div class="orderByContent">
+                <div className="orderByContent">
                     <label>:رتبه بندی بر اساس</label>
-                    <div class="orderBy">
+                    <div className="orderBy">
 
                         <div>
-                            <button class="orderByBtn">تاریخ</button>
+                            <button className="orderByBtn">تاریخ</button>
                         </div>
                         <div>
-                            <button class="orderByBtn">IMDB امتیاز</button>
+                            <button className="orderByBtn">IMDB امتیاز</button>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </body>
+        </>
 )
 }
 
