@@ -5,6 +5,7 @@ import './Actor.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../Header/Header';
 import tempPic from "../Images/no-way-home.jpg";
+import Movie from '../Movie/Movie'
 
 // import {Helmet} from "react-helmet";
 // const Demo = props => (
