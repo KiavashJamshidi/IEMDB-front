@@ -60,12 +60,12 @@ img {
     position: relative;
 }
 
-.movie:hover .overlay {
+.movie:hover .overlay-movie {
     opacity: 1;
     /* width: 100px; */
 }
 
-.overlay {
+.overlay-movie {
     padding-top: 5%;
     position: absolute;
     top: 0;

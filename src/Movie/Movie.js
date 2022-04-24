@@ -8,11 +8,10 @@ import Comment from './Comment';
 
 import { useParams } from 'react-router-dom';
 import { API_URL } from '../EnviormentVariables';
+import star from "../Images/star.png"
 import axios from "axios";
 
 function Movie(props) {
-
-    // string url = window.location.href;
     const { movieId } = useParams();
 
     let [movie, setMovie] = useState([]);
@@ -39,6 +38,17 @@ function Movie(props) {
             body: JSON.stringify({
                 "text" : text,
             })
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
+        window.location.reload(false);
+    }
+
+    const addToWatchlist = (event, movieId) => {
+        event.preventDefault();
+        const url = `${API_URL}/movies/${movieId}/addToWatchlist`;
+        fetch(url, {
+            method: 'POST',
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
@@ -75,7 +85,7 @@ function Movie(props) {
                     <div className="movie-description">
                         <div className="movie-picture">
                             <img src={movie.Image} className="image-film" alt=""/>
-                            <button type="submit" className="addToWatchlistButton">افزودن به لیست</button>
+                            <button type="submit" className="addToWatchlistButton" onClick={(event) => addToWatchlist(event, movie.Id)}>افزودن به لیست</button>
                         </div>
                         <div className="info-movie">
                             <div className="info-movie-title">
@@ -108,7 +118,7 @@ function Movie(props) {
                                 <br/>
                                 <div className="dropdown">
                                     <button className="dropbtn">
-                                        <img src="/Images/star.png" alt="" className="star"/>
+                                        <img src={star} alt="" className="star"/>
                                     </button>
                                     <div className="dropdown-content">
                                         <div className="rate">

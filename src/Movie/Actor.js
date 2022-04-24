@@ -10,10 +10,10 @@ function Actor(props) {
         <div className="cast-picture-div">
             <Link to={"/actor/" + props.actor.Id}>
                 <img src={props.actor.Image} alt="" className="cast-img"/>
-                <div className="overlay">
+                <div className="overlay-actor">
                     <br/>
                     <br/> {props.actor.Name}
-                    <br/> Age: {props.actor.age}
+                    <br/> Birthdate: {props.actor.BirthDate}
                 </div>
             </Link>
         </div>

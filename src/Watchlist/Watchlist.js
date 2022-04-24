@@ -1,15 +1,43 @@
+import React, { useEffect, useState } from 'react'
+import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../Header/Header'
 import MovieWatchlist from './MovieWatchlist';
 import './Watchlist.css'
 import '../Styles.css'
 import MovieRec from './MovieRec';
+import { API_URL } from '../EnviormentVariables';
 
 function Watchlist(props) {
-    return (
+    let [movies, setMovies] = useState([]);
 
+    async function getWatchlist(code, group) {
+        const url = `${API_URL}/movies`
+        const resp = await axios.get(
+            url,
+            // getAuthHeader()
+        );
+        console.log(resp.status);
+        console.log(resp.data);
+
+        return resp.data;
+    }
+
+    // useEffect(() => {
+    //     getWatchlist()
+    //         .then(c => {
+    //             setMovies(c);
+    //         })
+    //         .catch(error => {
+    //             if (error.response)
+    //                 console.log(error.response.data);
+    //             else
+    //                 console.log(error);
+    //         });
+    //   }, []);
+    
+    return (
         <div>
-            
             <Header email="sina99.sn@gmail.com"/>
 
             <div className="container">
@@ -17,9 +45,11 @@ function Watchlist(props) {
 
                     <MovieWatchlist />
 
-                    <div className="w-100"></div>
+                    { movies.map( item => (
 
-                    <MovieWatchlist />
+                        <MovieWatchlist movie={item}/>
+
+                    ))}
 
                     <div className="w-100"></div>
 

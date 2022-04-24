@@ -24,7 +24,10 @@ function MovieHeader(props) {
 
             <form className="searchInput">
                 <input type="text" placeholder=""/>
-                <button type="submit"><i className="fa fa-search"></i></button>
+                <button type="submit">
+                    <img src="../../Images/search-logo.jpg" alt="" />
+                    {/* <i className="fa fa-search"></i> */}
+                </button>
             </form>
 
         </div>

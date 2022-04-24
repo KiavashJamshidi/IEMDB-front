@@ -73,25 +73,6 @@
     width: 100%;
 }
 
-.cast-picture-div:hover .overlay {
-    opacity: 1;
-}
-
-.overlay {
-    border-radius: 60%;
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    color: white;
-    width: 80%;
-    height: 80%;
-    justify-content: center;
-    text-align: center;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: rgba(92, 10, 10, 0.521);
-    box-shadow: 5px 5px #240808c5;
-}
 
 .title-comment,
 .comment,
@@ -368,6 +349,8 @@
     display: inline-block;
     cursor: pointer;
     text-align: center;
+    width: 100%;
+    font-size: medium;
  }
  
  .addToWatchlistButton:hover {

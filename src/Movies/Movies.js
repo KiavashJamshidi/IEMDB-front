@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 
 import { GetUser } from '../App'
-// import { useStateValue } from '../StateManager/StateProvider'
 import './Movies.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css'
@@ -36,6 +35,28 @@ function Movies() {
         return resp.data;
     }
 
+    const sortByImdbRate = (event) => {
+        event.preventDefault();
+        const url = `${API_URL}/movies/sortByImdbRate`;
+        fetch(url, {
+            method: 'POST',
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
+        window.location.reload(false);
+    }
+
+    const sortByReleaseDate = (event) => {
+        event.preventDefault();
+        const url = `${API_URL}/movies/sortByReleaseDate`;
+        fetch(url, {
+            method: 'POST',
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
+        window.location.reload(false);
+    }
+
     useEffect(() => {
         getMovies()
             .then(c => {
@@ -50,14 +71,11 @@ function Movies() {
       }, []);    
     
     return (
-        
-        <>
-
+        <div>
             <MovieHeader email="sina99.sn@gmail.com" />
 
             <div className="movies">
-                <div className="redundant-div">
-                </div>
+                <div className="redundant-div"></div>
                 <div className="all-movies-div">
                     <div className="col-movie">
 
@@ -73,16 +91,15 @@ function Movies() {
                     <div className="orderBy">
 
                         <div>
-                            <button className="orderByBtn">تاریخ</button>
+                            <button className="orderByBtn" onClick={(event) => sortByReleaseDate(event)}>تاریخ</button>
                         </div>
                         <div>
-                            <button className="orderByBtn">IMDB امتیاز</button>
+                            <button className="orderByBtn" onClick={(event) => sortByImdbRate(event)}>IMDB امتیاز</button>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </>
+        </div>
 )
 }
 

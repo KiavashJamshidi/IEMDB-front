@@ -13,7 +13,7 @@ function Movie(props) {
     <div className="movie">
         <Link to={"/movie/" + props.movie.Id}>
             <img src={props.movie.Image} alt="" className="image-film"/>
-            <div className="overlay">
+            <div className="overlay-movie">
                 {props.movie.name}
                 <br/> {props.movie.IMDBRate}
             </div>

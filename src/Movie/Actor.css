@@ -9,11 +9,11 @@
     position: relative;
 }
 
-.cast-picture-div:hover .overlay {
+.cast-picture-div:hover .overlay-actor {
     opacity: 1;
 }
 
-.overlay {
+.overlay-actor {
     border-radius: 60%;
     position: absolute;
     top: 10%;
