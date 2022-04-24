@@ -1,5 +1,5 @@
 img {
-    height: 40%;
+    /* height: 40%; */
 }
 
 .container {
@@ -57,10 +57,9 @@ label {
     padding-top: 5%;
     position: absolute;
     top: 8%;
-    left: 17%;
+    left: 8%;
     color: white;
-
-    width: 68%;
+    width: 80%;
     height: 80%;
     justify-content: center;
     text-align: center;
@@ -68,5 +67,5 @@ label {
     transition: .5s ease;
     background-color: rgba(92, 10, 10, 0.521);
     box-shadow: 5px 5px #240808c5;
-    border-radius: 0;
+    /* border-radius: 0; */
 }

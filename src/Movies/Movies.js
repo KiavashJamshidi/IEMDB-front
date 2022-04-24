@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 
 import { GetUser } from '../App'
-// import Product from '../Products/Product'
 // import { useStateValue } from '../StateManager/StateProvider'
 import './Movies.css'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -22,9 +21,7 @@ import { API_URL } from '../EnviormentVariables';
   
 // );
 function Movies() {
-    // const [state, dispatch] = useStateValue()
     let [movies, setMovies] = useState([]);
-    // let movies = [];
     let user;
 
     async function getMovies(code, group) {
@@ -40,8 +37,7 @@ function Movies() {
     }
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            getMovies()
+        getMovies()
             .then(c => {
                 setMovies(c);
             })
@@ -51,8 +47,6 @@ function Movies() {
                 else
                     console.log(error);
             });
-        }, 5000);
-        return () => clearInterval(interval);
       }, []);    
     
     return (
@@ -66,29 +60,12 @@ function Movies() {
                 </div>
                 <div className="all-movies-div">
                     <div className="col-movie">
-                        {/* <Movie />
-                        <Movie />
-                        <Movie /> */}
+
                         { movies.map( item => (
 
-                        <Movie MovieName={item.name}/>
+                        <Movie movie={item}/>
 
                         ) )}
-                    </div>
-                    <div className="col-movie">
-                        <Movie />
-                        <Movie />
-                        <Movie />
-                    </div>
-                    <div className="col-movie">
-                        <Movie />
-                        <Movie />
-                        <Movie />
-                    </div>
-                    <div className="col-movie">
-                        <Movie />
-                        <Movie />
-                        <Movie />
                     </div>
                 </div>
                 <div className="orderByContent">

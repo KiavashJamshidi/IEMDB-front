@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { GetUser } from '../App'
 import '../Styles.css';
 import './Actor.css';
@@ -6,6 +6,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../Header/Header';
 import tempPic from "../Images/no-way-home.jpg";
 import ActorsMovies from './ActorsMovies';
+import { useParams } from 'react-router-dom';
+import { API_URL } from '../EnviormentVariables';
+import axios from "axios";
+import { act } from 'react-dom/test-utils';
 
 // import {Helmet} from "react-helmet";
 // const Demo = props => (
@@ -21,13 +25,34 @@ function Actor() {
     // const [state, dispatch] = useStateValue()
     let user;
 
-    // useEffect( async () => {
-    //     user = await GetUser(state);
-    //     await dispatch({
-    //         type: 'SET_USER_INFO',
-    //         user: user
-    //     });
-    // }, [] )
+    const { actorId } = useParams();
+
+    let [actor, setActor] = useState([]);
+
+    async function getActor(code, group) {
+        const url = `${API_URL}/actors/${actorId}`
+        const resp = await axios.get(
+            url,
+            // getAuthHeader()
+        );
+        console.log(resp.status);
+        console.log(resp.data);
+
+        return resp.data;
+    }
+
+    useEffect(() => {
+        getActor()
+            .then(c => {
+                setActor(c);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+      }, []);    
 
 
     return (
@@ -38,7 +63,7 @@ function Actor() {
             <div className="container">
                 <div className="row">
                     <div className="col-md-3">
-                        <img src="/Images/Tom-Holland.jpg" alt="" id="picture-actor"/>
+                        <img src={actor.Image} alt="" id="picture-actor"/>
                     </div>
                     <div className="col-md-9">
                         <div className="info" dir="rtl">
@@ -49,11 +74,11 @@ function Actor() {
                             </div>
                             <div className="info-actor">
                                 <label>
-                                    نام: Tom Holland
+                                    نام: {actor.Name}
                                     <br/>
-                                    تاریخ تولد: 1/06/1996
+                                    تاریخ تولد: {actor.BirthDate}
                                     <br/>
-                                    ملیت: UK
+                                    ملیت: {actor.Nationality}
                                     <br/>
                                     تعداد فیلم ها: 4
                                 </label>

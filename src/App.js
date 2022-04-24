@@ -70,10 +70,10 @@ function App() {
             </Route> */}
           <Route path="/watchlist" caseSensitive={false} element={<Watchlist />} />
           <Route path="/movies" caseSensitive={false} element={<Movies />} />
-          <Route path="/movie" caseSensitive={false} element={<Movie />} />
+          <Route path="/movie/:movieId" caseSensitive={false} element={<Movie />} />
           <Route path="/login" caseSensitive={false} element={<Login />} />
           <Route path="/signup" caseSensitive={false} element={<Signup />} />
-          <Route path="/actor" caseSensitive={false} element={<Actor />} />
+          <Route path="/actor/:actorId" caseSensitive={false} element={<Actor />} />
           </Routes>
 
         </div>

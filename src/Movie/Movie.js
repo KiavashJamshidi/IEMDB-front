@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Movie.css'
 import '../Styles.css'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -6,7 +6,60 @@ import Header from '../Header/Header'
 import Actor from './Actor';
 import Comment from './Comment';
 
+import { useParams } from 'react-router-dom';
+import { API_URL } from '../EnviormentVariables';
+import axios from "axios";
+
 function Movie(props) {
+
+    // string url = window.location.href;
+    const { movieId } = useParams();
+
+    let [movie, setMovie] = useState([]);
+    let [votenum, setVotenum] = useState([]);
+    const [text,setText] = useState('');
+
+    async function getMovie() {
+        const url = `${API_URL}/movies/${movieId}`
+        const resp = await axios.get(
+            url,
+            // getAuthHeader()
+        );
+        console.log(resp.status);
+        console.log(resp.data);
+
+        return resp.data;
+    }
+
+    const addComment = (event, movieId, text) => {
+        event.preventDefault();
+        const url = `${API_URL}/movies/${movieId}/addComment`;
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                "text" : text,
+            })
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
+        window.location.reload(false);
+    }
+
+    
+    useEffect(() => {
+        getMovie()
+            .then(c => {
+                setMovie(c);
+                setVotenum(c.Rates.length);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+      }, []);    
+
     return (
     <div>
         
@@ -14,33 +67,34 @@ function Movie(props) {
         <div>
             <div className="movie-wallpaper">
                 <div className="fade"></div>
-                <img src="/Images/noWayHome-wide-wallpaper.jpg" alt=""/>
+                <img src={movie.CoverImage} alt=""/>
             </div>
 
             <div className="movie-info">
                 <div className="movie-description-div">
                     <div className="movie-description">
                         <div className="movie-picture">
-                            <img src="/Images/no-way-home.jpg" className="image-film" alt=""/>
+                            <img src={movie.Image} className="image-film" alt=""/>
+                            <button type="submit" className="addToWatchlistButton">افزودن به لیست</button>
                         </div>
                         <div className="info-movie">
                             <div className="info-movie-title">
-                                <label>Spider-Man: No Way Home</label>
+                                <label>{movie.name}</label>
                             </div>
                             <div className="info-movie-details">
-                                <label>Jon Watts :کارگردان </label>
+                                <label>{movie.director} :کارگردان </label>
                             </div>
                             <div className="info-movie-details">
                                 <label>Stan Lee, Chris McKenna, Steve Dikto :نویسنده </label>
                             </div>
                             <div className="info-movie-details">
-                                <label dir="rtl">مدت زمان: 145 دقیقه</label>
+                                <label dir="rtl">مدت زمان: {movie.duration} دقیقه</label>
                             </div>
                             <div className="info-movie-releasedate">
-                                <label dir="rtl"> تاریخ انتشار: 2021/12/17</label>
+                                <label dir="rtl"> تاریخ انتشار: {movie.releaseDate}</label>
                             </div>
                             <div className="info-movie-description" dir="rtl">
-                                <label dir="rtl"> با فاش شدن هویت مرد عنکبوتی، وب‌گرد دوستانه محله ما نقاب بردار شده و دیگر نمی‌تواند زندگی عادی خود به عنوان پیتر پارکر را از خطرات بالای ابرقهرمان بودن جدا کند. وقتی پیتر از دکتر استرنج کمک می‌خواهد، خطرات حتی خطرناک‌تر می‌شود و او را مجبور می‌کند بفهمد که واقعاً مرد عنکبوتی بودن به چه معناست.</label>
+                                <label dir="rtl"> {movie.summary}</label>
                             </div>
 
                         </div>
@@ -48,7 +102,7 @@ function Movie(props) {
                             <div>
                                 <label className="imdb-rate">
                                     <b>
-                                        8.8
+                                        {movie.IMDBRate}
                                     </b>
                                 </label>
                                 <br/>
@@ -85,7 +139,8 @@ function Movie(props) {
                             <div className="rate-users-info">
                                 <div className="rate-users">
                                     <b>
-                                        8.3
+                                        {console.log(movie.score)}
+                                        {(movie.score != null) ? movie.score : 0}
                                     </b>
                                 </div>
                                 <div className="rate-number-users">
@@ -93,8 +148,8 @@ function Movie(props) {
                                         امتیاز کاربران
                                     </b>
                                     <br/>
-                                    <label className="number-of-raters">
-                                        (23 رای)
+                                    <label className="number-of-raters" dir="rtl">
+                                        ({votenum} رای)
                                     </label>
                                 </div>
                             </div>
@@ -111,13 +166,12 @@ function Movie(props) {
                             <div>بازیگران</div>
                             <div className="cast-pictures">
 
-                                <Actor />
+                            {(movie.actors || []).map(actr => (
 
-                                <Actor />
+                                <Actor actor={actr}/>
 
-                                <Actor />
-
-                                <Actor />
+                            ) )}
+                            
                             </div>
                         </div>
                     </div>
@@ -130,15 +184,17 @@ function Movie(props) {
 
                             <div className="form-field">
                                 <label className="title-comment" dir="rtl"><b>دیدگاه خود را اضافه کنید:</b></label>
-                                <textarea className="comment" dir="rtl"></textarea>
-                                <button className="register-comment">ثبت</button>
+                                <textarea className="comment" dir="rtl" 
+                                value={text} 
+                                onChange={e => setText(e.target.value)}></textarea>
+                                <button className="register-comment" onClick={(event) => addComment(event, movie.Id, text)}>ثبت</button>
                             </div>
                             
-                            <Comment />
-                            
-                            <Comment />
+                            {(movie.comments || []).map(cmnt => (
 
-                            <Comment />
+                                <Comment comment={cmnt}/>
+
+                            ) )}
 
                         </div>
                     </div>

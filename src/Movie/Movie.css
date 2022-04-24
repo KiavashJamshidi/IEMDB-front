@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     z-index: -1;
+    flex-direction: column;
 }
 
 .fade {
@@ -57,6 +58,8 @@
 .cast-pictures {
     display: flex;
     font-size: 80%;
+    align-content: center;
+    justify-content: center;
 }
 
 .cast-picture-div {
@@ -349,3 +352,31 @@
     bottom: 5%;
     left: 3%;
 }
+
+.addToWatchlistButton {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Brush Script MT;
+    font-size: 9px;
+    font-weight: 200;
+    padding: 10px;
+    background-color: #B12025;
+    text-shadow: 1px 1px 20px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+ }
+ 
+ .addToWatchlistButton:hover {
+    background: #CC3B40;
+    border: solid #DD380D 0;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+ }
+
+ 
