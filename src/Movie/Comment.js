@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css'
 import like from '../Images/arrow-up.png'
 import dislike from '../Images/arrow-down.png'
-import { API_URL } from '../EnviormentVariables';
+import { API_URL } from '../EnvironmentVariables';
 import axios from "axios";
 
 function Comment(props) {
@@ -13,14 +13,7 @@ function Comment(props) {
         event.preventDefault();
         const url = `${API_URL}/voteComment/${commentId}/${vote}`;
         fetch(url, {
-            method: 'POST',
-            // headers: {
-            //     'Content-Type': 'application/json',
-            // },
-            // body: JSON.stringify({
-            //     'username' : email,
-            //     'password':  password
-            // })
+            method: 'POST'
         })
         .then(resp => resp.json())
         // .then(res => handleResponse(res))

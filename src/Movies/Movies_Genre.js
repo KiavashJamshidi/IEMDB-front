@@ -14,10 +14,10 @@ import { useParams } from 'react-router-dom';
 function Movies_Name() {
     let [movies, setMovies] = useState([]);
 
-    const { name } = useParams();
+    const { genre } = useParams();
 
     async function getMovies() {
-        const url = `${API_URL}/movies/searchByName/${name}`
+        const url = `${API_URL}/movies/searchByGenre/${genre}`
         const resp = await axios.get(
             url
         );
@@ -48,16 +48,14 @@ function Movies_Name() {
 
     useEffect(() => {
         getMovies()
-            .then(c => {
-                setMovies(c);
-            })
+            .then(c => { setMovies(c); })
             .catch(error => {
                 if (error.response)
                     console.log(error.response.data);
                 else
                     console.log(error);
             });
-      }, [name]);    
+      }, [genre]);    
     
     return (
         <div>
@@ -67,12 +65,7 @@ function Movies_Name() {
                 <div className="redundant-div"></div>
                 <div className="all-movies-div">
                     <div className="col-movie">
-
-                        { movies.map( item => (
-
-                        <Movie movie={item}/>
-
-                        ) )}
+                        { movies.map( item => (<Movie movie={item}/>)) }
                     </div>
                 </div>
                 <div className="orderByContent">

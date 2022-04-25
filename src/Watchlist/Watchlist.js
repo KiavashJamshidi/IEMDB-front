@@ -6,7 +6,7 @@ import MovieWatchlist from './MovieWatchlist';
 import './Watchlist.css'
 import '../Styles.css'
 import MovieRec from './MovieRec';
-import { API_URL } from '../EnviormentVariables';
+import { API_URL } from '../EnvironmentVariables';
 
 function Watchlist(props) {
     let [movies, setMovies] = useState([]);

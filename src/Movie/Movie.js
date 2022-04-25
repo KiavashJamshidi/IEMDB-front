@@ -7,7 +7,7 @@ import Actor from './Actor';
 import Comment from './Comment';
 
 import { useParams } from 'react-router-dom';
-import { API_URL } from '../EnviormentVariables';
+import { API_URL } from '../EnvironmentVariables';
 import star from "../Images/star.png"
 import axios from "axios";
 
@@ -84,7 +84,7 @@ function Movie(props) {
                             <img src={movie.Image} className="small-image-film" alt=""/>
                             <button type="submit" className="addToWatchlistButton" onClick={(event) => addToWatchlist(event, movie.Id)}>افزودن به لیست</button>
                         </div>
-                        <div className="info-movie">
+                        <div className="info-specific-movie">
                             <div className="info-movie-title">
                                 <label>{movie.name}</label>
                             </div>

@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css'
 import MovieHeader from './Header/movieHeader';
 import Movie from './Movie'
-import { API_URL } from '../EnviormentVariables';
+import { API_URL } from '../EnvironmentVariables';
 
 // import {Helmet} from "react-helmet";
 // const Demo = props => (

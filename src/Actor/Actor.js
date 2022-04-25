@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import tempPic from "../Images/no-way-home.jpg";
 import ActorsMovies from './ActorsMovies';
 import { useParams } from 'react-router-dom';
-import { API_URL } from '../EnviormentVariables';
+import { API_URL } from '../EnvironmentVariables';
 import axios from "axios";
 import { act } from 'react-dom/test-utils';
 

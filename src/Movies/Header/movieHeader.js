@@ -5,20 +5,19 @@ import profile_icon from '../../Images/profile.jpg'
 import './movieHeader.css'
 import '../../Styles.css'
 import { useNavigate } from 'react-router-dom';
-import { API_URL } from '../../EnviormentVariables';
+import { API_URL } from '../../EnvironmentVariables';
 
 function MovieHeader(props) {
     const [search, setSearch] = useState('');
 
     const navigate = useNavigate();
+
     const logout_user = (event) => {
         event.preventDefault();
         const url = `${API_URL}/logout`;
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-            })
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
@@ -36,9 +35,11 @@ function MovieHeader(props) {
                 <button className="dropbtn">:جستجو بر اساس</button>
                 <div className="dropdown-content">
                     <Link to={"/movies/searchMovieByName/" + search}>
-                            نام
+                        نام
                     </Link>
-                    <Link to="#">ژانر</Link>
+                    <Link to={"/movies/searchMovieByGenre/" + search}>
+                        ژانر
+                    </Link>
                     <Link to="#">تاریخ تولید</Link>
                 </div>
             </div>

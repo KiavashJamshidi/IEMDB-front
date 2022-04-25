@@ -315,9 +315,11 @@
     font-size: 10px;
 }
 
-.info-movie {
+.info-specific-movie {
     margin-top: 10%;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-field {

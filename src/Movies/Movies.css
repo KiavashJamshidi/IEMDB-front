@@ -1,16 +1,9 @@
-img {
-    /* height: 40%; */
-}
-
 .image-film {
     display: block;
     width: 100%;
     height: 100%;
 }
 
-.movie {
-    /* margin: 10%; */
-}
 
 .orderByBtn {
     width: 100%;
@@ -55,14 +48,12 @@ img {
 }
 
 .movie {
-    /* margin: 10%; */
     height: 180px;
     position: relative;
 }
 
 .movie:hover .overlay-movie {
     opacity: 1;
-    /* width: 100px; */
 }
 
 .overlay-movie {
@@ -84,12 +75,12 @@ img {
 
 .col-movie {
     gap: 1%;
-    /* width: 100%; */
     display: flex;
     flex-direction: row;
     width: inherit;
     flex-wrap: wrap;
     align-content: center;
+    /* margin-top: 210%; */
 }
 
 .all-movies-div {

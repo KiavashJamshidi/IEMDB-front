@@ -5,7 +5,7 @@ import logo from '../Images/IEMDB.png'
 import profile_icon from '../Images/profile.jpg'
 import '../Styles.css'
 import { Link } from 'react-router-dom';
-import { API_URL } from '../EnviormentVariables';
+import { API_URL } from '../EnvironmentVariables';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 

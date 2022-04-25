@@ -4,7 +4,7 @@ import './MovieWatchlist.css'
 import '../Styles.css'
 import trashIMage from '../Images/trash.png';
 import { Link } from 'react-router-dom';
-import { API_URL } from '../EnviormentVariables';
+import { API_URL } from '../EnvironmentVariables';
 
 function MovieWatchlist(props) {
 
