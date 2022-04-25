@@ -35,7 +35,7 @@ label {
 }
 
 
-.film-div:hover .overlay-actor{
+.film-div:hover .overlay-actor-movies{
     opacity: 1;
 }
 
@@ -53,7 +53,7 @@ label {
     max-height: 450px;
 }
 
-.overlay-actor {
+.overlay-actor-movies {
     padding-top: 5%;
     position: absolute;
     top: 6%;

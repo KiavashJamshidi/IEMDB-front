@@ -10,7 +10,7 @@ function ActorsMovies(props) {
         <div className="film-div">
         <Link to="/Codes/Movie.html">
             <img src={MovieImage} alt="" className="image-film"/>
-            <div className="overlay">
+            <div className="overlay-actor-movies">
                 Spider Man: No Way Home
                 <br/> 8.3
             </div>
