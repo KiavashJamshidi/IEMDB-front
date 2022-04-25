@@ -1,5 +1,5 @@
-import { Link, useHistory } from 'react-router-dom';
-import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
 import logo from '../../Images/IEMDB.png'
 import profile_icon from '../../Images/profile.jpg'
 import './movieHeader.css'
@@ -40,7 +40,9 @@ function MovieHeader(props) {
                     <Link to={"/movies/searchMovieByGenre/" + search}>
                         ژانر
                     </Link>
-                    <Link to="#">تاریخ تولید</Link>
+                    <Link to={"/movies/searchMovieByDate/" + search}>
+                        تاریخ تولید
+                    </Link>
                 </div>
             </div>
 

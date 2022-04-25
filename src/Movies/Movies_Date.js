@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
-import './Movies.css';
+
+import { GetUser } from '../App'
+import './Movies.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import '../Styles.css';
+import '../Styles.css'
 import MovieHeader from './Header/movieHeader';
-import Movie from './Movie';
+import Movie from './Movie'
 import { API_URL } from '../EnvironmentVariables';
 import { useParams } from 'react-router-dom';
 
 
-function Movies_Genre() {
+function Movies_Name() {
     let [movies, setMovies] = useState([]);
 
-    const { genre } = useParams();
+    const { search } = useParams();
 
     async function getMovies() {
-        const url = `${API_URL}/movies/searchByGenre/${genre}`
+        const url = `${API_URL}/movies/searchByDate/${search}`
         const resp = await axios.get(
             url
         );
@@ -48,12 +50,10 @@ function Movies_Genre() {
         getMovies()
             .then(c => { setMovies(c); })
             .catch(error => {
-                if (error.response)
-                    console.log(error.response.data);
-                else
-                    console.log(error);
+                if (error.response) console.log(error.response.data);
+                else console.log(error);
             });
-      }, [genre]);    
+      }, [search]);    
     
     return (
         <div>
@@ -63,7 +63,7 @@ function Movies_Genre() {
                 <div className="redundant-div"></div>
                 <div className="all-movies-div">
                     <div className="col-movie">
-                        { movies.map( item => (<Movie movie={item}/>)) }
+                        { movies.map( item => ( <Movie movie={item}/>)) }
                     </div>
                 </div>
                 <div className="orderByContent">
@@ -81,4 +81,4 @@ function Movies_Genre() {
         </div>
 )}
 
-export default Movies_Genre
+export default Movies_Name
