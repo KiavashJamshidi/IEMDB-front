@@ -22,6 +22,8 @@ import { act } from 'react-dom/test-utils';
 
 // );
 function Actor() {
+    let [movies, setMovies] = useState([]);
+
     // const [state, dispatch] = useStateValue()
     let user;
 
@@ -32,6 +34,18 @@ function Actor() {
     async function getActor(code, group) {
         const url = `${API_URL}/actors/${actorId}`
         const resp = await axios.get(
+            url,
+            // getAuthHeader()
+        );
+        console.log(resp.status);
+        console.log(resp.data);
+
+        return resp.data;
+    }
+
+    async function getMovies(code, group) {
+        const url = `${API_URL}/actors/${actorId}/moviesActed`
+        const resp = await axios.post(
             url,
             // getAuthHeader()
         );
@@ -52,6 +66,17 @@ function Actor() {
                 else
                     console.log(error);
             });
+
+            getMovies()
+                .then(c => {
+                    setMovies(c);
+                })
+                .catch(error => {
+                    if (error.response)
+                        console.log(error.response.data);
+                    else
+                        console.log(error);
+                });
       }, []);    
 
 
@@ -89,9 +114,13 @@ function Actor() {
                                 </label>
                             </div>
                             <div className="films-played">
-                                <ActorsMovies />
-                                <ActorsMovies />
-                                <ActorsMovies />
+
+                                { movies.map( item => (
+
+                                    <ActorsMovies movie={item}/>
+
+                                ) )}
+
                             </div>
                             <br/>
                         </div>
