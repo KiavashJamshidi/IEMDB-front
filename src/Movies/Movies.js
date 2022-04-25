@@ -29,9 +29,6 @@ function Movies() {
             url,
             // getAuthHeader()
         );
-        console.log(resp.status);
-        console.log(resp.data);
-
         return resp.data;
     }
 

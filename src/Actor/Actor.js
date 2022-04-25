@@ -37,9 +37,6 @@ function Actor() {
             url,
             // getAuthHeader()
         );
-        console.log(resp.status);
-        console.log(resp.data);
-
         return resp.data;
     }
 
@@ -49,9 +46,6 @@ function Actor() {
             url,
             // getAuthHeader()
         );
-        console.log(resp.status);
-        console.log(resp.data);
-
         return resp.data;
     }
 
