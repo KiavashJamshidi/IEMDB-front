@@ -54,3 +54,7 @@ label {
     border-radius: 5%;
 }
 
+.row{
+    align-items: center;
+    flex-direction: column;
+}

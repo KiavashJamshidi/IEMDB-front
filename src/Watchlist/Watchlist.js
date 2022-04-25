@@ -11,8 +11,8 @@ import { API_URL } from '../EnviormentVariables';
 function Watchlist(props) {
     let [movies, setMovies] = useState([]);
 
-    async function getWatchlist(code, group) {
-        const url = `${API_URL}/movies`
+    async function getWatchlist() {
+        const url = `${API_URL}/watchlist`
         const resp = await axios.get(
             url,
             // getAuthHeader()
@@ -23,18 +23,18 @@ function Watchlist(props) {
         return resp.data;
     }
 
-    // useEffect(() => {
-    //     getWatchlist()
-    //         .then(c => {
-    //             setMovies(c);
-    //         })
-    //         .catch(error => {
-    //             if (error.response)
-    //                 console.log(error.response.data);
-    //             else
-    //                 console.log(error);
-    //         });
-    //   }, []);
+    useEffect(() => {
+        getWatchlist()
+            .then(c => {
+                setMovies(c);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+      }, []);
     
     return (
         <div>
@@ -43,11 +43,10 @@ function Watchlist(props) {
             <div className="container">
                 <div className="row">
 
-                    <MovieWatchlist />
 
-                    { movies.map( item => (
+                    { movies.map(item => (
 
-                        <MovieWatchlist movie={item}/>
+                        <MovieWatchlist  movie={item}/>
 
                     ))}
 
