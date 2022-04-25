@@ -32,7 +32,7 @@ function MovieHeader(props) {
         </Link>
         <form className="searchDiv">
             <div className="dropdown">
-                <button className="dropbtn">:جستجو بر اساس</button>
+                <button className="dropbtn-header">:جستجو بر اساس</button>
                 <div className="dropdown-content">
                     <Link to={"/movies/searchMovieByName/" + search}>
                         نام
