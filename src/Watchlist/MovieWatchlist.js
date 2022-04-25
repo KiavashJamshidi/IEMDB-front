@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { API_URL } from '../EnviormentVariables';
 
 function MovieWatchlist(props) {
+
     const deleteMovie = (event, movieId) => {
         event.preventDefault();
         const url = `${API_URL}/watchlist/${movieId}/remove`;
@@ -18,13 +19,13 @@ function MovieWatchlist(props) {
         window.location.reload(false);
     }
 
+
     return (
 
         <div className="col">
             
             <div className="film-img-div">
                 <Link to="/Codes/Movie.html">
-
                     <img src={props.movie.Image} alt="" className="film-img"/>
                 </Link>
             </div>
@@ -36,9 +37,7 @@ function MovieWatchlist(props) {
                         </label>
                     </div>
                     <div className="title-div-right">
-                        {/* <Link to="#"> */}
-                            <img src={trashIMage} alt="" className="trash" onClick={(event) => deleteMovie(event, props.movie.Id)}/>
-                        {/* </Link> */}
+                        <img src={trashIMage} alt="" className="trash" onClick={(event) => deleteMovie(event, props.movie.Id)}/>
                     </div>
                 </div>
                 <div className="info-movie">

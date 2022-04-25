@@ -99,7 +99,7 @@ function Actor() {
                                     <br/>
                                     ملیت: {actor.Nationality}
                                     <br/>
-                                    تعداد فیلم ها: 4
+                                    تعداد فیلم ها: {movies.length}
                                 </label>
                             </div>
                             <div className="title-div">

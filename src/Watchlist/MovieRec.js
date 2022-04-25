@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 function MovieRec(props) {
     return (
         <div className="recommend-div">
-            <Link to="/Codes/Movie.html">
-                <img src={MovieImage} alt="" className="image-film"/>
-                <div className="overlay">
-                    Spider Man: No Way Home
-                    <br/> 8.2
+            <Link to={"/movie/" + props.movie.Id}>
+                <img src={props.movie.Image} alt="" className="image-film"/>
+                <div className="MovieRecOverlay">
+                    {props.movie.Name}
+                    <br/> {props.movie.IMDBRate}
                 </div>
             </Link>
         </div>
