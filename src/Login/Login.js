@@ -8,9 +8,10 @@ import profileLogin from '../Images/proflie-login.png';
 import password from '../Images/password.jpg';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../EnviormentVariables';
-
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 
@@ -30,6 +31,7 @@ function Login() {
         const url = `${API_URL}/login`;
         fetch(url, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 "email" : email,
                 "password" : password
@@ -37,7 +39,7 @@ function Login() {
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
-        // window.location.reload(false);
+        navigate('/movies');
     }
 
 

@@ -20,6 +20,7 @@ function App() {
 				<Route path="/login" caseSensitive={false} element={<Login />} />
 				<Route path="/signup" caseSensitive={false} element={<Signup />} />
 				<Route path="/actor/:actorId" caseSensitive={false} element={<Actor />} />
+
           	</Routes>
 
         </div>

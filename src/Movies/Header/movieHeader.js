@@ -4,8 +4,26 @@ import logo from '../../Images/IEMDB.png'
 import profile_icon from '../../Images/profile.jpg'
 import './movieHeader.css'
 import '../../Styles.css'
+import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../EnviormentVariables';
 
 function MovieHeader(props) {
+
+    const navigate = useNavigate();
+    const logout_user = (event) => {
+        event.preventDefault();
+        const url = `${API_URL}/logout`;
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+            })
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
+        navigate("/login");
+        // window.location.reload(false);
+    }
 
     return (
         <div className="navbar" id="navigation">
@@ -38,6 +56,11 @@ function MovieHeader(props) {
                     <div className="dropdown-content">
                         <Link to="#">{props.email}</Link>
                         <Link to="#">watch list</Link>
+                        <Link to="/login">
+                            <div onClick={(event) => logout_user(event)}>
+                                logout
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
