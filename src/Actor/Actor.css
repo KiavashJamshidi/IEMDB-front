@@ -16,6 +16,8 @@ img {
     background-color: #4E4E50; 
     border-radius: 3%;
     max-height: 300px;
+    justify-content: center;
+    align-items: center;
 }
 
 label {

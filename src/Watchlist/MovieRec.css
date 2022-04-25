@@ -5,7 +5,11 @@
     position: relative;
 }
 
-.overlay {
+.recommend-div:hover .MovieRecOverlay{
+    opacity: 1;
+}
+
+.MovieRecOverlay {
     padding-top: 5%;
     position: absolute;
     top: 8%;

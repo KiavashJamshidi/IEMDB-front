@@ -10,6 +10,7 @@ import { API_URL } from '../EnviormentVariables';
 
 function Watchlist(props) {
     let [movies, setMovies] = useState([]);
+    let [recommendedMovies, setRecommendedMovies] = useState([]);
 
     async function getWatchlist() {
         const url = `${API_URL}/watchlist`
@@ -23,10 +24,33 @@ function Watchlist(props) {
         return resp.data;
     }
 
+    async function getRecommendedMovies () {
+        const url = `${API_URL}/recommendations`;
+        const resp = await axios.post(
+            url,
+            // getAuthHeader()
+        );
+        console.log(resp.status);
+        console.log(resp.data);
+
+        return resp.data;
+    }
+
     useEffect(() => {
         getWatchlist()
             .then(c => {
                 setMovies(c);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+
+        getRecommendedMovies()
+            .then(RM => {
+                setRecommendedMovies(RM);
             })
             .catch(error => {
                 if (error.response)
@@ -60,12 +84,12 @@ function Watchlist(props) {
                                 </label>
                             </div>
                             <div className="films-recommended">
+                            
+                            { recommendedMovies.map(item => (
 
-                                <MovieRec />
+                                <MovieRec  movie={item} />
 
-                                <MovieRec />
-
-                                <MovieRec />
+                            ))}
 
                             </div>
 
