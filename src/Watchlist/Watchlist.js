@@ -89,12 +89,10 @@ function Watchlist(props) {
                             ))}
 
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }

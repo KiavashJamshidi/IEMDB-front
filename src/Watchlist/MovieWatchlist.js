@@ -25,7 +25,7 @@ function MovieWatchlist(props) {
         <div className="col">
             
             <div className="film-img-div">
-                <Link to="/Codes/Movie.html">
+                <Link to={"/movie/" + props.movie.Id}>
                     <img src={props.movie.Image} alt="" className="film-img"/>
                 </Link>
             </div>
