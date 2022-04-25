@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Movie(props) {
 
-    useEffect(() => {
-        console.log(props.movie)
-    }, []);
+    useEffect(() => { }, []);
 
     return (
     <div className="movie">

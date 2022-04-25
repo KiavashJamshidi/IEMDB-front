@@ -18,9 +18,6 @@ function Watchlist(props) {
             url,
             // getAuthHeader()
         );
-        console.log(resp.status);
-        console.log(resp.data);
-
         return resp.data;
     }
 
@@ -92,12 +89,10 @@ function Watchlist(props) {
                             ))}
 
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }

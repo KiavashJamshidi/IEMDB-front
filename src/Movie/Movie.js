@@ -16,17 +16,13 @@ function Movie(props) {
 
     let [movie, setMovie] = useState([]);
     let [votenum, setVotenum] = useState([]);
-    const [text,setText] = useState('');
+    const [text, setText] = useState('');
 
     async function getMovie() {
         const url = `${API_URL}/movies/${movieId}`
         const resp = await axios.get(
-            url,
-            // getAuthHeader()
+            url
         );
-        console.log(resp.status);
-        console.log(resp.data);
-
         return resp.data;
     }
 
@@ -85,7 +81,7 @@ function Movie(props) {
                 <div className="movie-description-div">
                     <div className="movie-description">
                         <div className="movie-picture">
-                            <img src={movie.Image} className="image-film" alt=""/>
+                            <img src={movie.Image} className="small-image-film" alt=""/>
                             <button type="submit" className="addToWatchlistButton" onClick={(event) => addToWatchlist(event, movie.Id)}>افزودن به لیست</button>
                         </div>
                         <div className="info-movie">
@@ -150,7 +146,6 @@ function Movie(props) {
                             <div className="rate-users-info">
                                 <div className="rate-users">
                                     <b>
-                                        {console.log(movie.score)}
                                         {(movie.score != null) ? movie.score : 0}
                                     </b>
                                 </div>
@@ -196,8 +191,9 @@ function Movie(props) {
                             <div className="form-field">
                                 <label className="title-comment" dir="rtl"><b>دیدگاه خود را اضافه کنید:</b></label>
                                 <textarea className="comment" dir="rtl" 
-                                value={text} 
-                                onChange={e => setText(e.target.value)}></textarea>
+                                    value={text} 
+                                    onChange={e => setText(e.target.value)}>
+                                </textarea>
                                 <button className="register-comment" onClick={(event) => addComment(event, movie.Id, text)}>ثبت</button>
                             </div>
                             

@@ -1,22 +1,21 @@
-.recommend-div {
+.recommend-div-movie-rec {
     padding: 2% 5%;
     width: 33%;
-    max-height: 175px;
     position: relative;
 }
 
-.recommend-div:hover .MovieRecOverlay{
+.recommend-div-movie-rec:hover .overlay-movie-rec{
     opacity: 1;
 }
 
-.MovieRecOverlay {
+.overlay-movie-rec {
     padding-top: 5%;
     position: absolute;
-    top: 8%;
-    left: 15%;
+    top: 10%;
+    left: 18%;
     color: white;
-    width: 70%;
-    height: 83%;
+    width: 63%;
+    height: 78%;
     justify-content: center;
     text-align: center;
     opacity: 0;
@@ -25,7 +24,7 @@
     box-shadow: 5px 5px #240808c5;
 }
 
-.image-film {
+.image-film-watchlist {
     display: block;
     width: 100%;
     height: 100%;

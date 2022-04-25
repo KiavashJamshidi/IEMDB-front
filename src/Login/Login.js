@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { GetUser } from '../App'
+import React, { useEffect, useState } from 'react';
+import { GetUser } from '../App';
 import './Login.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css';
@@ -7,18 +7,13 @@ import Header from '../Header/Header';
 import profileLogin from '../Images/proflie-login.png';
 import password from '../Images/password.jpg';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../EnviormentVariables';
 
-// import {Helmet} from "react-helmet";
-// const Demo = props => (
-// <div className="application">
-//             <Helmet>
-//             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
-//             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-//             </Helmet>
-//         </div>
 
-// );
 function Login() {
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
+
     // const [state, dispatch] = useStateValue()
     let user;
 
@@ -29,6 +24,21 @@ function Login() {
     //         user: user
     //     });
     // }, [] )
+
+    const login_user = (event, email, password) => {
+        event.preventDefault();
+        const url = `${API_URL}/login`;
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                "email" : email,
+                "password" : password
+            })
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
+        // window.location.reload(false);
+    }
 
 
     return (
@@ -44,14 +54,18 @@ function Login() {
                         <div className="card-body">
                             <form>
                                 <div className="input-group form-group">
-                                    <input type="text" className="form-control" placeholder="نام کاربری" dir="rtl"/>
+                                    <input type="text" className="form-control" placeholder="نام کاربری" dir="rtl" 
+                                        value = {email} 
+                                        onChange = {e => setEmail(e.target.value)}/>
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><img src={profileLogin} alt="" className="icon-image"/></span>
                                     </div>
 
                                 </div>
                                 <div className="input-group form-group">
-                                    <input type="password" className="form-control" placeholder="رمز عبور" dir="rtl"/>
+                                    <input type="password" className="form-control" placeholder="رمز عبور" dir="rtl" 
+                                        value = {pass} 
+                                        onChange = {e => setPass(e.target.value)}/>
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><img src={password} alt="" className="icon-image"/> </span>
                                     </div>
@@ -60,7 +74,7 @@ function Login() {
                                     <input type="checkbox"/>من را به خاطر بسپار
                                 </div>
                                 <div className="form-group">
-                                    <button className="login-button">ورود</button>
+                                    <button className="login-button"  onClick={(event) => login_user(event, email, pass)}>ورود</button>
                                 </div>
                             </form>
                         </div>
