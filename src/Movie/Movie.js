@@ -30,13 +30,14 @@ function Movie(props) {
         return resp.data;
     }
 
-    const addComment = (event, movieId, text) => {
+    const addComment = (event, movieId, comment) => {
         event.preventDefault();
         const url = `${API_URL}/movies/${movieId}/addComment`;
         fetch(url, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                "text" : text,
+                "text" : comment,
             })
         })
         .then(resp => resp.json())
