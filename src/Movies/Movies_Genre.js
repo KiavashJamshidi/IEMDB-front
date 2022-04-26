@@ -3,7 +3,6 @@ import axios from "axios";
 import './Movies.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css';
-import './Movies_Secondary.css';
 import MovieHeader from './Header/movieHeader';
 import Movie from './Movie';
 import { API_URL } from '../EnvironmentVariables';
@@ -62,7 +61,7 @@ function Movies_Genre() {
 
             <div className="movies">
                 <div className="redundant-div"></div>
-                <div className="all-movies-div-secondary">
+                <div className="all-movies-div">
                     <div className="col-movie">
                         { movies.map( item => (<Movie movie={item}/>)) }
                     </div>

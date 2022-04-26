@@ -1,6 +1,7 @@
 .movie {
     height: 180px;
     position: relative;
+    margin: 1%;
 }
 
 .movie:hover .overlay-movie {

@@ -62,7 +62,7 @@ function Movies() {
 
             <div className="movies">
                 <div className="redundant-div"></div>
-                <div className="all-movies-div-main">
+                <div className="all-movies-div">
                     <div className="col-movie">
                         { movies.map( item => ( <Movie movie={item}/> ))}
                     </div>

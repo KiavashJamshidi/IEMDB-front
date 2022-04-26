@@ -3,7 +3,6 @@ import axios from "axios";
 
 import { GetUser } from '../App'
 import './Movies.css';
-import './Movies_Secondary.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css';
 import MovieHeader from './Header/movieHeader';
@@ -66,7 +65,7 @@ function Movies_Name() {
 
             <div className="movies">
                 <div className="redundant-div"></div>
-                <div className="all-movies-div-secondary">
+                <div className="all-movies-div">
                     <div className="col-movie">
 
                         { movies.map( item => (

@@ -24,6 +24,9 @@
     margin-top: 7%;
     width: 15%;
     padding: 0px 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .orderByBtn:hover {
@@ -44,7 +47,6 @@
 }
 
 .col-movie {
-    gap: 1%;
     display: flex;
     flex-direction: row;
     width: inherit;
@@ -54,10 +56,10 @@
     align-items: center;
 }
 
-.all-movies-div-main {
+.all-movies-div {
+    margin-top: 7%;
     width: 70%;
     display: flex;
-    margin-top: 150%;
     align-content: center;
     justify-content: center;
 }
@@ -69,6 +71,4 @@
 .movies {
     display: flex;
     text-align: center;
-    justify-content: center;
-    align-items: center;
 }

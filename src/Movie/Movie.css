@@ -194,6 +194,7 @@
     margin-top: 5%;
     color: white;
     text-align: center;
+    overflow: visible;
 }
 
 .rate-users,
@@ -243,7 +244,7 @@
 }
 
 .rate {
-    float: left;
+    display: flex;
     height: 46px;
     padding: 0 10px;
     background-color: green;
@@ -260,7 +261,7 @@
     overflow: hidden;
     white-space: nowrap;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 20px;
     color: #ccc;
 }
 

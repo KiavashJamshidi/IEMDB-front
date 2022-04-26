@@ -51,7 +51,20 @@ function Movie(props) {
         .catch(errors => console.log(errors));
         window.location.reload(false);
     }
-
+    const rateMovie = (event, rateValue) => {
+        event.preventDefault();
+        const url = `${API_URL}/movies/${movieId}/rate`;
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "RateValue" : rateValue
+            })
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
+        window.location.reload(false);
+    }
     
     useEffect(() => {
         getMovie()
@@ -119,25 +132,25 @@ function Movie(props) {
                                     </button>
                                     <div className="dropdown-content">
                                         <div className="rate">
-                                            <input type="radio" id="star10" name="rate" value="10" />
+                                            <input type="radio" id="star10" name="rate" value="10" onClick={(event) => rateMovie(event, 10)}/>
                                             <label htmlFor="star10" title="text"></label>
-                                            <input type="radio" id="star9" name="rate" value="9" />
+                                            <input type="radio" id="star9" name="rate" value="9" onClick={(event) => rateMovie(event, 9)}/>
                                             <label htmlFor="star9" title="text"></label>
-                                            <input type="radio" id="star8" name="rate" value="8" />
+                                            <input type="radio" id="star8" name="rate" value="8" onClick={(event) => rateMovie(event, 8)}/>
                                             <label htmlFor="star8" title="text"></label>
-                                            <input type="radio" id="star7" name="rate" value="7" />
+                                            <input type="radio" id="star7" name="rate" value="7" onClick={(event) => rateMovie(event, 7)}/>
                                             <label htmlFor="star7" title="text"></label>
-                                            <input type="radio" id="star6" name="rate" value="6" />
+                                            <input type="radio" id="star6" name="rate" value="6" onClick={(event) => rateMovie(event, 6)}/>
                                             <label htmlFor="star6" title="text"></label>
-                                            <input type="radio" id="star5" name="rate" value="5" />
+                                            <input type="radio" id="star5" name="rate" value="5" onClick={(event) => rateMovie(event, 5)}/>
                                             <label htmlFor="star5" title="text"></label>
-                                            <input type="radio" id="star4" name="rate" value="4" />
+                                            <input type="radio" id="star4" name="rate" value="4" onClick={(event) => rateMovie(event, 4)}/>
                                             <label htmlFor="star4" title="text"></label>
-                                            <input type="radio" id="star3" name="rate" value="3" />
+                                            <input type="radio" id="star3" name="rate" value="3" onClick={(event) => rateMovie(event, 3)}/>
                                             <label htmlFor="star3" title="text"></label>
-                                            <input type="radio" id="star2" name="rate" value="2" />
+                                            <input type="radio" id="star2" name="rate" value="2" onClick={(event) => rateMovie(event, 2)}/>
                                             <label htmlFor="star2" title="text"></label>
-                                            <input type="radio" id="star1" name="rate" value="1" />
+                                            <input type="radio" id="star1" name="rate" value="1" onClick={(event) => rateMovie(event, 1)}/>
                                             <label htmlFor="star1" title="text"></label>
                                         </div>
                                     </div>

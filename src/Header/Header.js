@@ -50,7 +50,6 @@ function Header(props) {
     }
 
 
-
     useEffect(() => {
         findUser()
             .then(u => {
@@ -67,7 +66,7 @@ function Header(props) {
     return (
         
         <div className="navbar" id="navigation">
-        <Link to="#" className="navbar-brand">
+        <Link to="/movies" className="navbar-brand">
             <img src={logo} width="60" alt=""/>
         </Link>
 

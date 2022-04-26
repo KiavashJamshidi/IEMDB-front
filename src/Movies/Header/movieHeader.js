@@ -77,10 +77,6 @@ function MovieHeader(props) {
                     value={search} 
                     onChange={e => setSearch(e.target.value)}
                 />
-                <button type="submit" >
-                    <img src="../../Images/search-logo.jpg" alt="" />
-                    {/* <i className="fa fa-search"></i> */}
-                </button>
             </div>
         </form>
         

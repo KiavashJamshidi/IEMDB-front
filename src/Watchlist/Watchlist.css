@@ -17,7 +17,7 @@ label {
 }
 
 .films-recommended {
-    gap: 10%;
+    /* gap: 10%; */
     display: flex;
     background-color: #4E4E50;
     border-radius: 3%;
