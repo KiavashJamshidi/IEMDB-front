@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import './Header.css'
+import React, { useEffect, useState } from 'react';
+import './Header.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import logo from '../Images/IEMDB.png'
-import profile_icon from '../Images/profile.jpg'
-import '../Styles.css'
+import logo from '../Images/IEMDB.png';
+import profile_icon from '../Images/profile.jpg';
+import '../Styles.css';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../EnvironmentVariables';
 import axios from "axios";

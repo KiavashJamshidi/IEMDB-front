@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
-
-import { GetUser } from '../App'
-import './Movies.css'
-import 'bootstrap/dist/css/bootstrap.css';
-import '../Styles.css'
-import MovieHeader from './Header/movieHeader';
+import { GetUser } from '../App';
 import Movie from './Movie'
+import './Movies.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../Styles.css';
+import MovieHeader from './Header/movieHeader';
 import { API_URL } from '../EnvironmentVariables';
 
-// import {Helmet} from "react-helmet";
-// const Demo = props => (
-// <div className="application">
-//             <Helmet>
-//             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
-//             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-//             </Helmet>
-//         </div>
-  
-// );
 function Movies() {
     let [movies, setMovies] = useState([]);
     let user;
@@ -73,7 +62,7 @@ function Movies() {
 
             <div className="movies">
                 <div className="redundant-div"></div>
-                <div className="all-movies-div">
+                <div className="all-movies-div-main">
                     <div className="col-movie">
                         { movies.map( item => ( <Movie movie={item}/> ))}
                     </div>

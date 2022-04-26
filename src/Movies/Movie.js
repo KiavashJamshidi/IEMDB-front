@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import './Movies.css'
-import '../Styles.css'
+import React, { useEffect } from 'react';
+import './Movie.css';
+import '../Styles.css';
 import { Link } from 'react-router-dom';
 
 function Movie(props) {
