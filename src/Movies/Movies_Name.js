@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 
 import { GetUser } from '../App'
-import './Movies.css'
+import './Movies.css';
+import './Movies_Secondary.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../Styles.css'
+import '../Styles.css';
 import MovieHeader from './Header/movieHeader';
 import Movie from './Movie'
 import { API_URL } from '../EnvironmentVariables';
@@ -65,7 +66,7 @@ function Movies_Name() {
 
             <div className="movies">
                 <div className="redundant-div"></div>
-                <div className="all-movies-div">
+                <div className="all-movies-div-secondary">
                     <div className="col-movie">
 
                         { movies.map( item => (

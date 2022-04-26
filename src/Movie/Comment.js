@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './Actor.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import '../Styles.css'
+// import '../Styles.css'
 import like from '../Images/arrow-up.png'
 import dislike from '../Images/arrow-down.png'
 import { API_URL } from '../EnvironmentVariables';
