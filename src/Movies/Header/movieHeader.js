@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../../Images/IEMDB.png'
 import profile_icon from '../../Images/profile.jpg'
 import './movieHeader.css'
 import '../../Styles.css'
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../EnvironmentVariables';
+import axios from "axios";
 
 function MovieHeader(props) {
     const [search, setSearch] = useState('');
+    let [user, setUser] = useState([]);
 
     const navigate = useNavigate();
 
@@ -22,8 +24,32 @@ function MovieHeader(props) {
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
         navigate("/login");
-        // window.location.reload(false);
     }
+
+    const findUser = () => {
+        const url = `${API_URL}/user`;
+        return fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+            })
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
+    }
+
+    useEffect(() => {
+        findUser()
+            .then(u => {
+                setUser(u);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+      }, []); 
 
     return (
         <div className="navbar" id="navigation">
@@ -63,7 +89,7 @@ function MovieHeader(props) {
                 <div className="dropdown">
                     <img src={profile_icon} className="profile" alt="" width="60"/>
                     <div className="dropdown-content">
-                        <Link to="#">{props.email}</Link>
+                        <Link to="#">{user.Email}</Link>
                         <Link to="#">watch list</Link>
                         <Link to="/login">
                             <div onClick={(event) => logout_user(event)}>
