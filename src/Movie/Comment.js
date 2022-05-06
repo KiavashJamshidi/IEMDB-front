@@ -31,11 +31,11 @@ function Comment(props) {
             </div>
             <div className="like-dislike-info">
                 <div className="like-dislike-div">
-                    <button type="submit" className="like-dislike-btn"><img src={dislike} alt="" className="like-dislike-img" onClick={(event) => addVoteComment(event, props.comment.Id, 1)}/></button>
+                    <button type="submit" className="like-dislike-btn"><img src={dislike} alt="" className="like-dislike-img" onClick={(event) => addVoteComment(event, props.comment.Id, -1)}/></button>
                     <b className="like-dislike-number">{props.comment.likes}</b>
                 </div>
                 <div className="like-dislike-div">
-                    <button type="submit" className="like-dislike-btn"><img src={like} alt="" className="like-dislike-img" onClick={(event) => addVoteComment(event, props.comment.Id, -1)}/></button>
+                    <button type="submit" className="like-dislike-btn"><img src={like} alt="" className="like-dislike-img" onClick={(event) => addVoteComment(event, props.comment.Id, 1)}/></button>
                     <b className="like-dislike-number">{props.comment.dislikes}</b>
                 </div>
             </div>

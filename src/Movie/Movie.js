@@ -15,11 +15,27 @@ function Movie(props) {
     const { movieId } = useParams();
 
     let [movie, setMovie] = useState([]);
+    let [actors, setActors] = useState([]);
+    let [comments, setComments] = useState([]);
     let [votenum, setVotenum] = useState([]);
     const [text, setText] = useState('');
 
     async function getMovie() {
         const url = `${API_URL}/movies/${movieId}`
+        const resp = await axios.get(
+            url
+        );
+        return resp.data;
+    }
+    async function getActors() {
+        const url = `${API_URL}/movies/${movieId}/actors`
+        const resp = await axios.get(
+            url
+        );
+        return resp.data;
+    }
+    async function getComments() {
+        const url = `${API_URL}/movies/${movieId}/comments`
         const resp = await axios.get(
             url
         );
@@ -78,6 +94,28 @@ function Movie(props) {
                 else
                     console.log(error);
             });
+
+            getActors()
+            .then(c => {
+                setActors(c);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+
+            getComments()
+            .then(c => {
+                setComments(c);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
       }, []);    
 
     return (
@@ -105,7 +143,7 @@ function Movie(props) {
                                 <label>{movie.director} :کارگردان </label>
                             </div>
                             <div className="info-movie-details">
-                                <label>Stan Lee, Chris McKenna, Steve Dikto :نویسنده </label>
+                                <label>{movie.writers} :نویسنده </label>
                             </div>
                             <div className="info-movie-details">
                                 <label dir="rtl">مدت زمان: {movie.duration} دقیقه</label>
@@ -159,7 +197,7 @@ function Movie(props) {
                             <div className="rate-users-info">
                                 <div className="rate-users">
                                     <b>
-                                        {(movie.score != null) ? movie.score : 0}
+                                        {(movie.score != -1) ? movie.score : 0}
                                     </b>
                                 </div>
                                 <div className="rate-number-users">
@@ -185,7 +223,7 @@ function Movie(props) {
                             <div>بازیگران</div>
                             <div className="cast-pictures">
 
-                            {(movie.actors || []).map(actr => (
+                            {(actors || []).map(actr => (
 
                                 <Actor actor={actr}/>
 
@@ -210,7 +248,7 @@ function Movie(props) {
                                 <button className="register-comment" onClick={(event) => addComment(event, movie.Id, text)}>ثبت</button>
                             </div>
                             
-                            {(movie.comments || []).map(cmnt => (
+                            {(comments || []).map(cmnt => (
 
                                 <Comment comment={cmnt}/>
 
