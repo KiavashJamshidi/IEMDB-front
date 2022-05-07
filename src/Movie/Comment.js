@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Actor.css'
 import 'bootstrap/dist/css/bootstrap.css';
 // import '../Styles.css'
@@ -8,6 +8,22 @@ import { API_URL } from '../EnvironmentVariables';
 import axios from "axios";
 
 function Comment(props) {
+    let [likes, setLikes] = useState([]);
+    let [dislikes, setDislikes] = useState([]);
+    async function getLikes() {
+        const url = `${API_URL}/voteComment/${props.comment.Id}/likes`
+        const resp = await axios.get(
+            url
+        );
+        return resp.data;
+    }
+    async function getDisLikes() {
+        const url = `${API_URL}/voteComment/${props.comment.Id}/dislikes`
+        const resp = await axios.get(
+            url
+        );
+        return resp.data;
+    }
 
     const addVoteComment = (event, commentId, vote) => {
         event.preventDefault();
@@ -21,6 +37,32 @@ function Comment(props) {
         window.location.reload(false);
     }
 
+    useEffect(() => {
+        getLikes()
+            .then(c => {
+                setLikes(c);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+
+        getDisLikes()
+            .then(c => {
+                setDislikes(c);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+
+      }, []);    
+
+
     return (
             <div className="comment-user">
             <div className="commentor-name">
@@ -32,11 +74,11 @@ function Comment(props) {
             <div className="like-dislike-info">
                 <div className="like-dislike-div">
                     <button type="submit" className="like-dislike-btn"><img src={dislike} alt="" className="like-dislike-img" onClick={(event) => addVoteComment(event, props.comment.Id, -1)}/></button>
-                    <b className="like-dislike-number">{props.comment.likes}</b>
+                    <b className="like-dislike-number">{dislikes}</b>
                 </div>
                 <div className="like-dislike-div">
                     <button type="submit" className="like-dislike-btn"><img src={like} alt="" className="like-dislike-img" onClick={(event) => addVoteComment(event, props.comment.Id, 1)}/></button>
-                    <b className="like-dislike-number">{props.comment.dislikes}</b>
+                    <b className="like-dislike-number">{likes}</b>
                 </div>
             </div>
         </div>

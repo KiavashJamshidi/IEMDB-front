@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css';
 import MovieHeader from './Header/movieHeader';
 import { API_URL } from '../EnvironmentVariables';
+import MoviesToShow from './MoviesToShow';
 
 function Movies() {
     let [movies, setMovies] = useState([]);
@@ -33,12 +34,15 @@ function Movies() {
     }
 
     const sortByReleaseDate = (event) => {
+        console.log("man umadam");
         event.preventDefault();
         const url = `${API_URL}/movies/sortByReleaseDate`;
         fetch(url, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({})
         })
-        .then(resp => resp.json())
+        .then(resp => setMovies(resp.json()))
         .catch(errors => console.log(errors));
         window.location.reload(false);
     }
@@ -46,7 +50,7 @@ function Movies() {
     useEffect(() => {
         getMovies()
             .then(c => {
-                setMovies(c);
+                // setMovies(c);
             })
             .catch(error => {
                 if (error.response)
@@ -62,11 +66,12 @@ function Movies() {
 
             <div className="movies">
                 <div className="redundant-div"></div>
-                <div className="all-movies-div">
+                {/* <div className="all-movies-div">
                     <div className="col-movie">
                         { movies.map( item => ( <Movie movie={item}/> ))}
                     </div>
-                </div>
+                </div> */}
+                <MoviesToShow movies={movies}/>
                 <div className="orderByContent">
                     <label>:رتبه بندی بر اساس</label>
                     <div className="orderBy">

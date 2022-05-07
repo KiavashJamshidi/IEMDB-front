@@ -13,11 +13,14 @@ import axios from "axios";
 
 function Movie(props) {
     const { movieId } = useParams();
-
+    var avgRate1;
+    var calculateAvgRate;
     let [movie, setMovie] = useState([]);
     let [actors, setActors] = useState([]);
     let [comments, setComments] = useState([]);
     let [votenum, setVotenum] = useState([]);
+    let [avgRate, setAvgRate] = useState([]);
+    let [movieRates, setMovieRates] = useState([]);
     const [text, setText] = useState('');
 
     async function getMovie() {
@@ -36,6 +39,14 @@ function Movie(props) {
     }
     async function getComments() {
         const url = `${API_URL}/movies/${movieId}/comments`
+        const resp = await axios.get(
+            url
+        );
+        return resp.data;
+    }
+
+    async function getMovieRates() {
+        const url = `${API_URL}/movies/${movieId}/rates`
         const resp = await axios.get(
             url
         );
@@ -81,12 +92,24 @@ function Movie(props) {
         .catch(errors => console.log(errors));
         window.location.reload(false);
     }
+
+    // function calculateAvgRate = () => {
+    //     avgRate = 0;
+    //     movieRates.map((rate,i) => avgRate += rate) ;
+    //     avgRate /= votenum;
+    // }
     
+    function calculateAvgRate() {
+        avgRate1 = 0;
+        movieRates.map((rate,i) => avgRate1 += rate) ;
+        avgRate1 = avgRate1 / votenum;
+        return setAvgRate(avgRate1);
+    }
+
     useEffect(() => {
         getMovie()
             .then(c => {
                 setMovie(c);
-                setVotenum(c.Rates.length);
             })
             .catch(error => {
                 if (error.response)
@@ -95,7 +118,7 @@ function Movie(props) {
                     console.log(error);
             });
 
-            getActors()
+        getActors()
             .then(c => {
                 setActors(c);
             })
@@ -106,9 +129,22 @@ function Movie(props) {
                     console.log(error);
             });
 
-            getComments()
+        getComments()
             .then(c => {
                 setComments(c);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+        
+        getMovieRates()
+            .then(c => {
+                setMovieRates(c);
+                setVotenum(c.length);
+                calculateAvgRate()
             })
             .catch(error => {
                 if (error.response)
@@ -197,7 +233,7 @@ function Movie(props) {
                             <div className="rate-users-info">
                                 <div className="rate-users">
                                     <b>
-                                        {(movie.score != -1) ? movie.score : 0}
+                                        {(votenum != 0) ? avgRate : 0}
                                     </b>
                                 </div>
                                 <div className="rate-number-users">
