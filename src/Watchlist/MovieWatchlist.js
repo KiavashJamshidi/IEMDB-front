@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { API_URL } from '../EnvironmentVariables';
 
 function MovieWatchlist(props) {
+    let [genres, setGenres] = useState([]);
 
     const deleteMovie = (event, movieId) => {
         event.preventDefault();
@@ -17,6 +18,14 @@ function MovieWatchlist(props) {
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
         window.location.reload(false);
+    }
+
+    async function getGenres(movieId){
+        const url = `${API_URL}/movies/${movieId}/genres`;
+        const resp = await axios.post(
+            url
+        );
+        setGenres(resp.data);
     }
 
 

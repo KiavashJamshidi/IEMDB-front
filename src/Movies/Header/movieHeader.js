@@ -85,8 +85,8 @@ function MovieHeader(props) {
                 <div className="dropdown">
                     <img src={profile_icon} className="profile" alt="" width="60"/>
                     <div className="dropdown-content">
-                        <Link to="#">{user.Email}</Link>
-                        <Link to="#">watch list</Link>
+                        {user?.Email}
+                        <Link to="/watchlist">watch list</Link>
                         <Link to="/login">
                             <div onClick={(event) => logout_user(event)}>
                                 logout

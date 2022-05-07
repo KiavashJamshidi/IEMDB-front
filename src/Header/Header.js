@@ -75,7 +75,7 @@ function Header(props) {
                 <div className="dropdown">
                     <img src={profile_icon} className="profile" alt="" width="60" />
                     <div className="dropdown-content">
-                        <div>{user.Email}</div>
+                        <div>{user?.Email}</div>
                         <Link to="/watchlist">watch list</Link>
                         <Link to="/login">
                             <div onClick={(event) => logout_user(event)}>

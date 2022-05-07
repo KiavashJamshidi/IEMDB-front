@@ -67,7 +67,7 @@ function Movie(props) {
         window.location.reload(false);
     }
 
-    const addToWatchlist = (event, movieId) => {
+    const addToWatchlist = (event) => {
         event.preventDefault();
         const url = `${API_URL}/movies/${movieId}/addToWatchlist`;
         fetch(url, {
@@ -95,12 +95,11 @@ function Movie(props) {
     
     function calculateAvgRate() {
         let sum = 0;
-        movieRates.map(function(rate,i) {
-            sum += rate;
-            console.log(rate);
-        }) ;
+        movieRates.map(rate =>
+            sum += rate
+        );
         // sum = sum / votenum;
-        setAvgRate(sum);
+        return sum;
     }
 
     useEffect(() => {
@@ -141,7 +140,7 @@ function Movie(props) {
             .then(c => {
                 setMovieRates(c);
                 setVotenum(c.length);
-                calculateAvgRate()
+                setAvgRate(Number(c.reduce((a,v) => a=a+v, 0) / c.length).toFixed(1));
             })
             .catch(error => {
                 if (error.response)
@@ -166,7 +165,7 @@ function Movie(props) {
                     <div className="movie-description">
                         <div className="movie-picture">
                             <img src={movie.Image} className="small-image-film" alt=""/>
-                            <button type="submit" className="addToWatchlistButton" onClick={(event) => addToWatchlist(event, movie.Id)}>افزودن به لیست</button>
+                            <button type="submit" className="addToWatchlistButton" onClick={(event) => addToWatchlist(event)}>افزودن به لیست</button>
                         </div>
                         <div className="info-specific-movie">
                             <div className="info-movie-title">
