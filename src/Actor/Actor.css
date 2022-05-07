@@ -12,7 +12,7 @@ img {
 }
 
 .films-played {
-    display: flex; 
+    display: flex;
     flex-wrap: wrap;
     background-color: #4E4E50; 
     border-radius: 3%;
@@ -20,6 +20,7 @@ img {
     justify-content: center;
     align-items: center;
     overflow: auto;
+
 }
 
 label {
