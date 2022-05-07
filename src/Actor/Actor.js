@@ -11,20 +11,9 @@ import { API_URL } from '../EnvironmentVariables';
 import axios from "axios";
 import { act } from 'react-dom/test-utils';
 
-// import {Helmet} from "react-helmet";
-// const Demo = props => (
-// <div className="application">
-//             <Helmet>
-//             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
-//             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-//             </Helmet>
-//         </div>
-
-// );
 function Actor() {
     let [movies, setMovies] = useState([]);
 
-    // const [state, dispatch] = useStateValue()
     let user;
 
     const { actorId } = useParams();
@@ -34,8 +23,7 @@ function Actor() {
     async function getActor(code, group) {
         const url = `${API_URL}/actors/${actorId}`
         const resp = await axios.get(
-            url,
-            // getAuthHeader()
+            url
         );
         return resp.data;
     }

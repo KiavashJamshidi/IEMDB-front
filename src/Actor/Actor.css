@@ -12,12 +12,15 @@ img {
 }
 
 .films-played {
-    display: flex; 
+    display: flex;
+    flex-wrap: wrap;
     background-color: #4E4E50; 
     border-radius: 3%;
     max-height: 300px;
     justify-content: center;
     align-items: center;
+    overflow: auto;
+
 }
 
 label {
@@ -58,15 +61,15 @@ label {
 .overlay-actor-movies {
     padding-top: 5%;
     position: absolute;
-    top: 6%;
-    left: 15%;
+    top: 7%;
+    left: 19%;
     color: white;
-    width: 69%;
-    height: 85%;
+    width: 62%;
+    height: 86%;
     justify-content: center;
     text-align: center;
     opacity: 0;
     transition: .5s ease;
     background-color: rgba(92, 10, 10, 0.521);
-    box-shadow: 5px 5px #240808c5;
+    box-shadow: 2px 2px #240808c5;
 }
