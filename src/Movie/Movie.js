@@ -229,7 +229,7 @@ function Movie(props) {
                             <div className="rate-users-info">
                                 <div className="rate-users">
                                     <b>
-                                        {(votenum != 0) ? avgRate : 0}
+                                        {(votenum != 0) ? avgRate : 'امتیازی داده نشده است'}
                                     </b>
                                 </div>
                                 <div className="rate-number-users">

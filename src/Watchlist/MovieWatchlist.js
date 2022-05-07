@@ -5,6 +5,8 @@ import '../Styles.css'
 import trashIMage from '../Images/trash.png';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../EnvironmentVariables';
+import axios from "axios";
+import React, { useEffect, useState } from 'react'
 
 function MovieWatchlist(props) {
     let [genres, setGenres] = useState([]);
@@ -20,13 +22,28 @@ function MovieWatchlist(props) {
         window.location.reload(false);
     }
 
-    async function getGenres(movieId){
-        const url = `${API_URL}/movies/${movieId}/genres`;
+    async function getGenres(){
+        const url = `${API_URL}/movies/${props.movie.Id}/genres`;
         const resp = await axios.post(
             url
         );
-        setGenres(resp.data);
+        return resp.data;
+        // setGenres(resp.data);
     }
+
+    useEffect(() => {
+        
+        getGenres()
+            .then(c => {
+                setGenres(c);
+            })
+            .catch(error => {
+                if (error.response)
+                    console.log(error.response.data);
+                else
+                    console.log(error);
+            });
+      }, []);    
 
 
     return (
@@ -56,7 +73,7 @@ function MovieWatchlist(props) {
                             {props.movie.IMDBRate}
                         <br/><br/>
                         <b>امتیاز کاربران:</b>
-                            {(props.movie.Score != null)?props.movie.Score:0}
+                            {(props.movie.Score != -1)?props.movie.Score:' امتیازی داده نشده است'}
                         </label>
                     </div>
                     <div className="info-div">
@@ -65,7 +82,7 @@ function MovieWatchlist(props) {
                             { props.movie.director}
                             <br/>
                             <b>ژانر:</b>
-                                {props.movie.genres}
+                                {genres}
                             <br/>
                             <b>تاریخ انتشار:</b>
                             {props.movie.ReleaseDate}
