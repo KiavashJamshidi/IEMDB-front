@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css';
 import MovieHeader from './Header/movieHeader';
 import { API_URL } from '../EnvironmentVariables';
-import MoviesToShow from './MoviesToShow';
 
 function Movies() {
     let [movies, setMovies] = useState([]);
@@ -17,40 +16,30 @@ function Movies() {
         const url = `${API_URL}/movies`
         const resp = await axios.get(
             url,
-            // getAuthHeader()
         );
         return resp.data;
     }
 
-    const sortByImdbRate = (event) => {
-        event.preventDefault();
+    async function sortByImdbRate (){
         const url = `${API_URL}/movies/sortByImdbRate`;
-        fetch(url, {
-            method: 'POST',
-        })
-        .then(resp => resp.json())
-        .catch(errors => console.log(errors));
-        window.location.reload(false);
+        const resp = await axios.post(
+            url
+        );
+        setMovies(resp.data);
     }
 
-    const sortByReleaseDate = (event) => {
-        console.log("man umadam");
-        event.preventDefault();
+    async function sortByReleaseDate() {
         const url = `${API_URL}/movies/sortByReleaseDate`;
-        fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({})
-        })
-        .then(resp => setMovies(resp.json()))
-        .catch(errors => console.log(errors));
-        window.location.reload(false);
+        const resp = await axios.post(
+            url
+        );
+        setMovies(resp.data);
     }
 
     useEffect(() => {
         getMovies()
             .then(c => {
-                // setMovies(c);
+                setMovies(c);
             })
             .catch(error => {
                 if (error.response)
@@ -66,12 +55,11 @@ function Movies() {
 
             <div className="movies">
                 <div className="redundant-div"></div>
-                {/* <div className="all-movies-div">
+                <div className="all-movies-div">
                     <div className="col-movie">
                         { movies.map( item => ( <Movie movie={item}/> ))}
                     </div>
-                </div> */}
-                <MoviesToShow movies={movies}/>
+                </div>
                 <div className="orderByContent">
                     <label>:رتبه بندی بر اساس</label>
                     <div className="orderBy">

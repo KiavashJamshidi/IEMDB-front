@@ -13,7 +13,6 @@ import axios from "axios";
 
 function Movie(props) {
     const { movieId } = useParams();
-    var avgRate1;
     var calculateAvgRate;
     let [movie, setMovie] = useState([]);
     let [actors, setActors] = useState([]);
@@ -93,17 +92,15 @@ function Movie(props) {
         window.location.reload(false);
     }
 
-    // function calculateAvgRate = () => {
-    //     avgRate = 0;
-    //     movieRates.map((rate,i) => avgRate += rate) ;
-    //     avgRate /= votenum;
-    // }
     
     function calculateAvgRate() {
-        avgRate1 = 0;
-        movieRates.map((rate,i) => avgRate1 += rate) ;
-        avgRate1 = avgRate1 / votenum;
-        return setAvgRate(avgRate1);
+        let sum = 0;
+        movieRates.map(function(rate,i) {
+            sum += rate;
+            console.log(rate);
+        }) ;
+        // sum = sum / votenum;
+        setAvgRate(sum);
     }
 
     useEffect(() => {
