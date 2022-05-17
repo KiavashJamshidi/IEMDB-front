@@ -86,10 +86,11 @@ function MovieHeader(props) {
                     <img src={profile_icon} className="profile" alt="" width="60"/>
                     <div className="dropdown-content">
                         {user?.Email}
+                        {/* {localStorage.getItem('userEmail')!=null ? localStorage.getItem('userEmail') : ''} */}
                         <Link to="/watchlist">watch list</Link>
                         <Link to="/login">
                             <div onClick={(event) => logout_user(event)}>
-                                logout
+                                {user!=null? 'logout' : 'login'} 
                             </div>
                         </Link>
                     </div>

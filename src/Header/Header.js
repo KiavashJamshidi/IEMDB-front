@@ -79,7 +79,9 @@ function Header(props) {
                         <Link to="/watchlist">watch list</Link>
                         <Link to="/login">
                             <div onClick={(event) => logout_user(event)}>
-                                logout
+                            {console.log("user is")}
+                                {console.log(user)}
+                                {user? 'logout' : 'login'} 
                             </div>
                         </Link>
                     </div>

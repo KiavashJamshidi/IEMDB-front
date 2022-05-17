@@ -9,6 +9,7 @@ import password from '../Images/password.jpg';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../EnvironmentVariables';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 function Login() {
     const navigate = useNavigate();
@@ -26,20 +27,16 @@ function Login() {
     //     });
     // }, [] )
 
-    const login_user = (event, email, password) => {
+    async function login_user (event, email, password) {
         event.preventDefault();
         const url = `${API_URL}/login`;
-        fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "email" : email,
-                "password" : password
-            })
-        })
-        .then(resp => resp.json())
-        .catch(errors => console.log(errors));
-        navigate('/movies');
+        const resp = await axios.post(
+            url,
+            {'email': email, 'password': password}
+        );
+        localStorage.setItem('token', resp.data.token);
+        localStorage.setItem('userEmail', resp.data.userEmail);
+        return resp.data;
     }
 
 
@@ -82,7 +79,7 @@ function Login() {
                         </div>
                         <div className="card-footer">
                             <div className="d-flex justify-content-center links">
-                                <Link to="#">ثبت نام</Link> حساب کاربری ندارید؟
+                                <Link to="/signup">ثبت نام</Link> حساب کاربری ندارید؟
                             </div>
                         </div>
                     </div>
