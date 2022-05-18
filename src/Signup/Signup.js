@@ -100,6 +100,9 @@ function Signup() {
                             <div className="d-flex justify-content-center links">
                                 <Link to="/login">ورود </Link> قبلا ثبت نام کرده اید؟
                             </div>
+                            <div className="d-flex justify-content-center links">
+                                <a href="https://github.com/login/oauth/authorize?client_id=4a4cc2f558b4c85a843b&scope=user"> Github </a> ورود با 
+                            </div>
                         </div>
                     </div>
                 </div>

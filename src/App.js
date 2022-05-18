@@ -9,6 +9,7 @@ import Movie_Date from './Movies/Movies_Date';
 import Signup from './Signup/Signup';
 import Watchlist from './Watchlist/Watchlist'
 import Actor from './Actor/Actor';
+import Callback from './Callback';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
 				<Route path="/login" caseSensitive={false} element={<Login />} />
 				<Route path="/signup" caseSensitive={false} element={<Signup />} />
 				<Route path="/actor/:actorId" caseSensitive={false} element={<Actor />} />
+				<Route path="/callback" caseSensitive={false} element={<Callback />} />
+
 				{/* <Route path="/searchMovieByGenre/:Genre" caseSensitive={false} element={<Actor />} />
 				<Route path="/searchMovieByDate/:startDate/:endDate" caseSensitive={false} element={<Actor />} /> */}
 
