@@ -1,6 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import Header from '../Header/Header'
-import MovieImage from '../Images/no-way-home.jpg';
 import './MovieRec.css'
 import '../Styles.css';
 import { Link } from 'react-router-dom';

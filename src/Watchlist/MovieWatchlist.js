@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import Header from '../Header/Header'
 import './MovieWatchlist.css'
 import '../Styles.css'
 import trashIMage from '../Images/trash.png';
@@ -73,7 +72,7 @@ function MovieWatchlist(props) {
                             {props.movie.IMDBRate}
                         <br/><br/>
                         <b>امتیاز کاربران:</b>
-                            {(props.movie.Score != -1)?props.movie.Score:' امتیازی داده نشده است'}
+                            {(props.movie.Score !== -1)?props.movie.Score:' امتیازی داده نشده است'}
                         </label>
                     </div>
                     <div className="info-div">

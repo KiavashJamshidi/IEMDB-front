@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
-import { GetUser } from '../App'
 import './Signup.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css';
@@ -12,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Signup() {
     const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors } } = useForm({mode: 'onBlur'});
+    const { register, formState: { errors } } = useForm({mode: 'onBlur'});
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');

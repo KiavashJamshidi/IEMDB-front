@@ -15,6 +15,8 @@ function Callback() {
             url,
             {'code': id}
         );
+        localStorage.setItem('token', resp.data.token);
+        localStorage.setItem('userEmail', resp.data.userEmail);
         navigate('/movies');
         return resp.data;
     }

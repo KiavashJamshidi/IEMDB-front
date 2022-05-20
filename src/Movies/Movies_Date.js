@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 
-import { GetUser } from '../App';
 import './Movies.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css';
