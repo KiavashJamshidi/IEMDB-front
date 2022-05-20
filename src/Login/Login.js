@@ -81,6 +81,10 @@ function Login() {
                             <div className="d-flex justify-content-center links">
                                 <Link to="/signup">ثبت نام</Link> حساب کاربری ندارید؟
                             </div>
+                            <div className="d-flex justify-content-center links">
+                                <a href="https://github.com/login/oauth/authorize?client_id=4a4cc2f558b4c85a843b&scope=user"> Github </a> ورود با 
+                            </div>
+
                         </div>
                     </div>
                 </div>

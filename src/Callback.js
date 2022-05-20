@@ -15,7 +15,7 @@ function Callback() {
             url,
             {'code': id}
         );
-        navigate('/login');
+        navigate('/movies');
         return resp.data;
     }
 
@@ -34,7 +34,10 @@ function Callback() {
 
 
     return (
-        <p style={{color: "white"}}> {id}</p>
+        <div style={{color: "white"}}>
+            <p> {id}</p>
+            <p>Redirecting to home page ...</p>
+        </div>
     )
 }
 
