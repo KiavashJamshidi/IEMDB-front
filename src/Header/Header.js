@@ -6,26 +6,16 @@ import profile_icon from '../Images/profile.jpg';
 import '../Styles.css';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../EnvironmentVariables';
-import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 function Header(props) {
     let [user, setUser] = useState([]);
     const navigate = useNavigate();
 
-    // async function findUser() {
-    //     const url = `${API_URL}/user`
-    //     const resp = await axios.post(
-    //         url,
-    //         // getAuthHeader()
-    //     );
-    //     return resp.data;
-    // }
-    
-    const logout_user = (event) => {
+    async function logout_user (event) {
         event.preventDefault();
         const url = `${API_URL}/logout`;
-        fetch(url, {
+        const resp = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -33,7 +23,11 @@ function Header(props) {
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
-        navigate("/login");
+        localStorage.setItem('token', null);
+        localStorage.setItem('userEmail', null);
+        // navigate("/login");
+        window.location.reload(false);
+
     }
 
 
@@ -41,7 +35,7 @@ function Header(props) {
         const url = `${API_URL}/user`;
         return fetch(url, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',  'Authorization': `Bearer ${localStorage.getItem('token')}`},
             body: JSON.stringify({
             })
         })

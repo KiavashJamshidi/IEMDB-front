@@ -14,7 +14,8 @@ function MovieWatchlist(props) {
         event.preventDefault();
         const url = `${API_URL}/watchlist/${movieId}/remove`;
         fetch(url, {
-            method: 'POST'
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',  'Authorization': `Bearer ${localStorage.getItem('token')}`},
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
@@ -23,11 +24,15 @@ function MovieWatchlist(props) {
 
     async function getGenres(){
         const url = `${API_URL}/movies/${props.movie.Id}/genres`;
-        const resp = await axios.post(
-            url
-        );
-        return resp.data;
-        // setGenres(resp.data);
+        const resp = fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',  'Authorization': `Bearer ${localStorage.getItem('token')}`},
+            body: JSON.stringify({
+            })
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
+        return resp;
     }
 
     useEffect(() => {

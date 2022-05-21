@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './Actor.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css'
-import MovieImage from '../Images/no-way-home.jpg'
 import { Link } from 'react-router-dom';
 import { API_URL } from '../EnvironmentVariables';
 
@@ -12,6 +11,7 @@ function ActorsMovies(props) {
         const url = `${API_URL}/actors/${actorId}/moviesActed`;
         fetch(url, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}`},
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));

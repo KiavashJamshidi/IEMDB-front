@@ -13,14 +13,16 @@ function Comment(props) {
     async function getLikes() {
         const url = `${API_URL}/voteComment/${props.comment.Id}/likes`
         const resp = await axios.get(
-            url
+            url,
+            {'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`}}
         );
         return resp.data;
     }
     async function getDisLikes() {
         const url = `${API_URL}/voteComment/${props.comment.Id}/dislikes`
         const resp = await axios.get(
-            url
+            url,
+            {'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`}}
         );
         return resp.data;
     }
@@ -29,7 +31,8 @@ function Comment(props) {
         event.preventDefault();
         const url = `${API_URL}/voteComment/${commentId}/${vote}`;
         fetch(url, {
-            method: 'POST'
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',  'Authorization': `Bearer ${localStorage.getItem('token')}`},
         })
         .then(resp => resp.json())
         // .then(res => handleResponse(res))

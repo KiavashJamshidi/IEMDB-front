@@ -1,40 +1,42 @@
 import React, { useEffect, useState } from 'react'
-import { GetUser } from '../App'
 import '../Styles.css';
 import './Actor.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../Header/Header';
-import tempPic from "../Images/no-way-home.jpg";
 import ActorsMovies from './ActorsMovies';
 import { useParams } from 'react-router-dom';
 import { API_URL } from '../EnvironmentVariables';
 import axios from "axios";
-import { act } from 'react-dom/test-utils';
+import { useNavigate } from 'react-router-dom';
 
 function Actor() {
     let [movies, setMovies] = useState([]);
-
-    let user;
+    const navigate = useNavigate();
 
     const { actorId } = useParams();
 
     let [actor, setActor] = useState([]);
 
-    async function getActor(code, group) {
+    async function getActor() {
         const url = `${API_URL}/actors/${actorId}`
         const resp = await axios.get(
-            url
+            url,
+            {'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`}}
         );
         return resp.data;
     }
 
-    async function getMovies(code, group) {
+    async function getMovies() {
         const url = `${API_URL}/actors/${actorId}/moviesActed`
-        const resp = await axios.post(
-            url,
-            // getAuthHeader()
-        );
-        return resp.data;
+        const resp = fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',  'Authorization': `Bearer ${localStorage.getItem('token')}`},
+            body: JSON.stringify({
+            })
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
+        return resp;
     }
 
     useEffect(() => {
@@ -47,6 +49,8 @@ function Actor() {
                     console.log(error.response.data);
                 else
                     console.log(error);
+                // if(error.response.status == 401 || )
+                    navigate('/login');
             });
 
             getMovies()

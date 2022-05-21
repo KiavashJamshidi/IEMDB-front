@@ -10,10 +10,11 @@ import { useParams } from 'react-router-dom';
 import { API_URL } from '../EnvironmentVariables';
 import star from "../Images/star.png"
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 function Movie(props) {
     const { movieId } = useParams();
-    var calculateAvgRate;
+    // var calculateAvgRate;
     let [movie, setMovie] = useState([]);
     let [actors, setActors] = useState([]);
     let [comments, setComments] = useState([]);
@@ -21,25 +22,29 @@ function Movie(props) {
     let [avgRate, setAvgRate] = useState([]);
     let [movieRates, setMovieRates] = useState([]);
     const [text, setText] = useState('');
+    const navigate = useNavigate();
 
     async function getMovie() {
         const url = `${API_URL}/movies/${movieId}`
         const resp = await axios.get(
-            url
+            url,
+            {'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`}}
         );
         return resp.data;
     }
     async function getActors() {
         const url = `${API_URL}/movies/${movieId}/actors`
         const resp = await axios.get(
-            url
+            url,
+            {'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`}}
         );
         return resp.data;
     }
     async function getComments() {
         const url = `${API_URL}/movies/${movieId}/comments`
         const resp = await axios.get(
-            url
+            url,
+            {'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`}}
         );
         return resp.data;
     }
@@ -47,7 +52,8 @@ function Movie(props) {
     async function getMovieRates() {
         const url = `${API_URL}/movies/${movieId}/rates`
         const resp = await axios.get(
-            url
+            url,
+            {'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`}}
         );
         return resp.data;
     }
@@ -67,22 +73,23 @@ function Movie(props) {
         window.location.reload(false);
     }
 
-    const addToWatchlist = (event) => {
+    async function addToWatchlist (event) {
         event.preventDefault();
         const url = `${API_URL}/movies/${movieId}/addToWatchlist`;
-        fetch(url, {
+        const resp = await fetch(url, {
             method: 'POST',
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}`}
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
-        window.location.reload(false);
+        // window.location.reload(false);
     }
     const rateMovie = (event, rateValue) => {
         event.preventDefault();
         const url = `${API_URL}/movies/${movieId}/rate`;
         fetch(url, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}`},
             body: JSON.stringify({
                 "RateValue" : rateValue
             })
@@ -112,6 +119,9 @@ function Movie(props) {
                     console.log(error.response.data);
                 else
                     console.log(error);
+                // if(error.response.status == 401)
+                    navigate('/login');
+
             });
 
         getActors()

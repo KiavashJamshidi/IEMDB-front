@@ -6,7 +6,6 @@ import './movieHeader.css'
 import '../../Styles.css'
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../EnvironmentVariables';
-import axios from "axios";
 
 function MovieHeader(props) {
     const [search, setSearch] = useState('');
@@ -19,7 +18,7 @@ function MovieHeader(props) {
         const url = `${API_URL}/logout`;
         fetch(url, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',  'Authorization': `Bearer ${localStorage.getItem('token')}`},
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
@@ -30,7 +29,7 @@ function MovieHeader(props) {
         const url = `${API_URL}/user`;
         return fetch(url, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',  'Authorization': `Bearer ${localStorage.getItem('token')}`},
             body: JSON.stringify({
             })
         })

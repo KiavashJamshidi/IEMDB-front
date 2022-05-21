@@ -8,17 +8,20 @@ import MovieHeader from './Header/movieHeader';
 import Movie from './Movie'
 import { API_URL } from '../EnvironmentVariables';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function Movies_Name() {
     let [movies, setMovies] = useState([]);
+    const navigate = useNavigate();
 
     const { name } = useParams();
 
     async function getMovies() {
         const url = `${API_URL}/movies/searchByName/${name}`
         const resp = await axios.get(
-            url
+            url,
+            {'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`}}
         );
         return resp.data;
     }
@@ -28,6 +31,7 @@ function Movies_Name() {
         const url = `${API_URL}/movies/sortByImdbRate`;
         fetch(url, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json',  'Authorization': `Bearer ${localStorage.getItem('token')}`},
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
@@ -39,6 +43,7 @@ function Movies_Name() {
         const url = `${API_URL}/movies/sortByReleaseDate`;
         fetch(url, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json',  'Authorization': `Bearer ${localStorage.getItem('token')}`},
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
@@ -55,6 +60,9 @@ function Movies_Name() {
                     console.log(error.response.data);
                 else
                     console.log(error);
+                if(error.response.status == 401)
+                    navigate('/login');
+
             });
       }, [name]);    
     

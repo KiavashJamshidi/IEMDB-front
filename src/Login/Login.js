@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { GetUser } from '../App';
 import './Login.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../Styles.css';
@@ -8,35 +7,26 @@ import profileLogin from '../Images/proflie-login.png';
 import password from '../Images/password.jpg';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../EnvironmentVariables';
-import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
-    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-
-    // const [state, dispatch] = useStateValue()
-    let user;
-
-    // useEffect( async () => {
-    //     user = await GetUser(state);
-    //     await dispatch({
-    //         type: 'SET_USER_INFO',
-    //         user: user
-    //     });
-    // }, [] )
+    const navigate = useNavigate();
 
     async function login_user (event, email, password) {
         event.preventDefault();
         const url = `${API_URL}/login`;
         const resp = await axios.post(
             url,
-            {'email': email, 'password': password}
+            {'email': email, 'password': password},
+            {'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`}}
         );
         localStorage.setItem('token', resp.data.token);
         localStorage.setItem('userEmail', resp.data.userEmail);
-        return resp.data;
+        navigate('/');
+        // return resp.data;
     }
 
 

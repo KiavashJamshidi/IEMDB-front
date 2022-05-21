@@ -16,6 +16,7 @@ function App() {
     <Router>
         <div className="App">
           	<Routes >
+			  	<Route exact path="/" caseSensitive={false} element={<Movies />} />
 			  	<Route exact path="/movies/searchMovieByName/:name" caseSensitive={false} element={<Movie_Name />} />
 			  	<Route exact path="/movies/searchMovieByGenre/:genre" caseSensitive={false} element={<Movie_Genre />} />
 				<Route exact path="/movies/searchMovieByDate/:search" caseSensitive={false} element={<Movie_Date />} />

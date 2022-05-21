@@ -7,30 +7,35 @@ import './Watchlist.css'
 import '../Styles.css'
 import MovieRec from './MovieRec';
 import { API_URL } from '../EnvironmentVariables';
+import { useNavigate } from 'react-router-dom';
 
 function Watchlist(props) {
     let [movies, setMovies] = useState([]);
     let [recommendedMovies, setRecommendedMovies] = useState([]);
+    const navigate = useNavigate();
 
     async function getWatchlist() {
         const url = `${API_URL}/watchlist`
         const resp = await axios.get(
             url,
-            // getAuthHeader()
+            {'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`}}
         );
         return resp.data;
     }
 
     async function getRecommendedMovies () {
         const url = `${API_URL}/recommendations`;
-        const resp = await axios.post(
-            url,
-            // getAuthHeader()
-        );
-        console.log(resp.status);
-        console.log(resp.data);
+        const resp = fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',  'Authorization': `Bearer ${localStorage.getItem('token')}`},
+            body: JSON.stringify({
+            })
+        })
+        .then(resp => resp.json())
+        .catch(errors => console.log(errors));
 
-        return resp.data;
+        
+        return resp;
     }
 
     useEffect(() => {
@@ -43,6 +48,8 @@ function Watchlist(props) {
                     console.log(error.response.data);
                 else
                     console.log(error);
+                // if(error.response.status == 401)
+                    navigate('/login');
             });
 
         getRecommendedMovies()
