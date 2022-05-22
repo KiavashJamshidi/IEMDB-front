@@ -29,6 +29,12 @@ function Login() {
         // return resp.data;
     }
 
+    useEffect(() => {
+        if(localStorage.getItem('token') !== 'null')
+            navigate('/');
+        }
+    , []);    
+
 
     return (
 

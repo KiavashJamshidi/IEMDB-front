@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from "react-hook-form";
 import './Signup.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -36,8 +36,14 @@ function Signup() {
         .then(resp => resp.json())
         .then(res => console.log(res))
         .catch(errors => console.log(errors));
-        navigate('/movies');
+        navigate('/login');
     }
+
+    useEffect(() => {
+        if(localStorage.getItem('token') !== 'null')
+            navigate('/');
+        }
+    , []);    
 
 
     return (

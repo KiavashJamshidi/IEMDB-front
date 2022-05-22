@@ -22,6 +22,9 @@ function MovieHeader(props) {
         })
         .then(resp => resp.json())
         .catch(errors => console.log(errors));
+        localStorage.setItem('token', null);
+        localStorage.setItem('userEmail', null);
+
         navigate("/login");
     }
 
@@ -89,7 +92,7 @@ function MovieHeader(props) {
                         <Link to="/watchlist">watch list</Link>
                         <Link to="/login">
                             <div onClick={(event) => logout_user(event)}>
-                                {user!=null? 'logout' : 'login'} 
+                                {user.Id != undefined? 'logout' : 'login'} 
                             </div>
                         </Link>
                     </div>

@@ -22,17 +22,22 @@ function Callback() {
     }
 
     useEffect(() => {
-        sendCode()
-            .then(c => {
-                
-            })
-            .catch(error => {
-                if (error.response)
-                    console.log(error.response.data);
-                else
-                    console.log(error);
-            });
-      }, []);    
+        if(localStorage.getItem('token') !== 'null')
+            navigate('/');
+        else{
+            sendCode()
+                .then(c => {
+                    
+                })
+                .catch(error => {
+                    if (error.response)
+                        console.log(error.response.data);
+                    else
+                        console.log(error);
+                });
+            }
+        }
+    , []);    
 
 
     return (

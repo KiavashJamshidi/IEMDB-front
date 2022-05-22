@@ -25,7 +25,6 @@ function Header(props) {
         .catch(errors => console.log(errors));
         localStorage.setItem('token', null);
         localStorage.setItem('userEmail', null);
-        // navigate("/login");
         window.location.reload(false);
 
     }
@@ -73,9 +72,7 @@ function Header(props) {
                         <Link to="/watchlist">watch list</Link>
                         <Link to="/login">
                             <div onClick={(event) => logout_user(event)}>
-                            {console.log("user is")}
-                                {console.log(user)}
-                                {user? 'logout' : 'login'} 
+                                {user.Id != undefined? 'logout' : 'login'} 
                             </div>
                         </Link>
                     </div>
